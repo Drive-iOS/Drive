@@ -8,15 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		1915CD5A9976FB0F21BBDEB1 /* libPods-Drive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB893EEE57BDD5707E1D32F7 /* libPods-Drive.a */; };
+		CA5E937524CBE69100C36AC3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937424CBE69100C36AC3 /* UIViewExtension.swift */; };
+		CA5E937724CBE6D600C36AC3 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937624CBE6D600C36AC3 /* Storyboard.swift */; };
+		CA5E937924CBE71500C36AC3 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937824CBE71500C36AC3 /* MapVC.swift */; };
+		CA5E937B24CBEAE000C36AC3 /* DriveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */; };
 		CAB592CF24CA89E3001A005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592CE24CA89E3001A005A /* AppDelegate.swift */; };
 		CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D024CA89E3001A005A /* SceneDelegate.swift */; };
-		CAB592D324CA89E3001A005A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D224CA89E3001A005A /* ViewController.swift */; };
+		CAB592D324CA89E3001A005A /* DriveCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D224CA89E3001A005A /* DriveCoordinator.swift */; };
 		CAB592D624CA89E3001A005A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB592D424CA89E3001A005A /* Main.storyboard */; };
 		CAB592D924CA89E3001A005A /* Drive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D724CA89E3001A005A /* Drive.xcdatamodeld */; };
 		CAB592DB24CA89E4001A005A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB592DA24CA89E4001A005A /* Assets.xcassets */; };
 		CAB592DE24CA89E4001A005A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB592DC24CA89E4001A005A /* LaunchScreen.storyboard */; };
 		CAB592E924CA89E4001A005A /* DriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592E824CA89E4001A005A /* DriveTests.swift */; };
 		CAB592F424CA89E4001A005A /* DriveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592F324CA89E4001A005A /* DriveUITests.swift */; };
+		CABFC3C824D79F330036A387 /* DriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3C724D79F330036A387 /* DriveService.swift */; };
+		CABFC3CA24D79F830036A387 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3C924D79F830036A387 /* LocationProvider.swift */; };
+		CABFC3CC24D79FDA0036A387 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CB24D79FDA0036A387 /* Endpoint.swift */; };
+		CABFC3CE24D7A00C0036A387 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CD24D7A00C0036A387 /* RequestFactory.swift */; };
+		CABFC3D024D7A0480036A387 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CF24D7A0480036A387 /* RegisterResponse.swift */; };
+		CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */; };
+		CABFC3DA24D7A2A40036A387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D924D7A2A40036A387 /* User.swift */; };
+		CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */; };
+		CADEB26E24CD145D0048056D /* DriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26D24CD145D0048056D /* DriveButton.swift */; };
+		CADEB27024CD147E0048056D /* DriveButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */; };
 		D64AD355802C55455FB2C9D7 /* libPods-Drive-DriveUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D36094027C2DED6FB9B8D2 /* libPods-Drive-DriveUITests.a */; };
 		F88395A0F9A2651E676AA459 /* libPods-DriveTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23DF7486BEFDC7B5B6DD0A87 /* libPods-DriveTests.a */; };
 /* End PBXBuildFile section */
@@ -47,10 +61,14 @@
 		84D36094027C2DED6FB9B8D2 /* libPods-Drive-DriveUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Drive-DriveUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB893EEE57BDD5707E1D32F7 /* libPods-Drive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Drive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B89D6073D16FB504EFF57DA6 /* Pods-Drive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive.release.xcconfig"; path = "Target Support Files/Pods-Drive/Pods-Drive.release.xcconfig"; sourceTree = "<group>"; };
+		CA5E937424CBE69100C36AC3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		CA5E937624CBE6D600C36AC3 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		CA5E937824CBE71500C36AC3 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveVC.swift; sourceTree = "<group>"; };
 		CAB592CB24CA89E3001A005A /* Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB592CE24CA89E3001A005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB592D024CA89E3001A005A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CAB592D224CA89E3001A005A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAB592D224CA89E3001A005A /* DriveCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveCoordinator.swift; sourceTree = "<group>"; };
 		CAB592D524CA89E3001A005A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAB592D824CA89E3001A005A /* Drive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drive.xcdatamodel; sourceTree = "<group>"; };
 		CAB592DA24CA89E4001A005A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +80,16 @@
 		CAB592EF24CA89E4001A005A /* DriveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DriveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB592F324CA89E4001A005A /* DriveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveUITests.swift; sourceTree = "<group>"; };
 		CAB592F524CA89E4001A005A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CABFC3C724D79F330036A387 /* DriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveService.swift; sourceTree = "<group>"; };
+		CABFC3C924D79F830036A387 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		CABFC3CB24D79FDA0036A387 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		CABFC3CD24D7A00C0036A387 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		CABFC3CF24D7A0480036A387 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveServiceType.swift; sourceTree = "<group>"; };
+		CABFC3D924D7A2A40036A387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		CADEB26D24CD145D0048056D /* DriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButton.swift; sourceTree = "<group>"; };
+		CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButtonViewModel.swift; sourceTree = "<group>"; };
 		D31E8773E759C82EAEE3612B /* Pods-DriveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveTests.debug.xcconfig"; path = "Target Support Files/Pods-DriveTests/Pods-DriveTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +131,6 @@
 				D31E8773E759C82EAEE3612B /* Pods-DriveTests.debug.xcconfig */,
 				42BE13370A38A6911898C616 /* Pods-DriveTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -134,10 +161,12 @@
 			children = (
 				CAB592CE24CA89E3001A005A /* AppDelegate.swift */,
 				CAB592D024CA89E3001A005A /* SceneDelegate.swift */,
-				CAB592D224CA89E3001A005A /* ViewController.swift */,
-				CAB592D424CA89E3001A005A /* Main.storyboard */,
+				CABFC3D324D7A1380036A387 /* API */,
+				CABFC3D724D7A2520036A387 /* Location */,
+				CABFC3E024D7A4C90036A387 /* Features */,
+				CABFC3DE24D7A3120036A387 /* Storyboard */,
+				CABFC3DF24D7A39C0036A387 /* Extensions */,
 				CAB592DA24CA89E4001A005A /* Assets.xcassets */,
-				CAB592DC24CA89E4001A005A /* LaunchScreen.storyboard */,
 				CAB592DF24CA89E4001A005A /* Info.plist */,
 				CAB592D724CA89E3001A005A /* Drive.xcdatamodeld */,
 			);
@@ -162,6 +191,82 @@
 			path = DriveUITests;
 			sourceTree = "<group>";
 		};
+		CABFC3D324D7A1380036A387 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CABFC3CB24D79FDA0036A387 /* Endpoint.swift */,
+				CABFC3C724D79F330036A387 /* DriveService.swift */,
+				CABFC3D924D7A2A40036A387 /* User.swift */,
+				CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */,
+				CABFC3CD24D7A00C0036A387 /* RequestFactory.swift */,
+				CABFC3D424D7A1790036A387 /* Responses */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CABFC3D424D7A1790036A387 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				CABFC3CF24D7A0480036A387 /* RegisterResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		CABFC3D724D7A2520036A387 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				CABFC3C924D79F830036A387 /* LocationProvider.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		CABFC3D824D7A2630036A387 /* TrackDrive */ = {
+			isa = PBXGroup;
+			children = (
+				CAB592D224CA89E3001A005A /* DriveCoordinator.swift */,
+				CA5E937824CBE71500C36AC3 /* MapVC.swift */,
+				CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */,
+				CABFC3DB24D7A2C00036A387 /* Views */,
+			);
+			path = TrackDrive;
+			sourceTree = "<group>";
+		};
+		CABFC3DB24D7A2C00036A387 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CADEB26D24CD145D0048056D /* DriveButton.swift */,
+				CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CABFC3DE24D7A3120036A387 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CA5E937624CBE6D600C36AC3 /* Storyboard.swift */,
+				CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */,
+				CAB592D424CA89E3001A005A /* Main.storyboard */,
+				CAB592DC24CA89E4001A005A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CABFC3DF24D7A39C0036A387 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA5E937424CBE69100C36AC3 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CABFC3E024D7A4C90036A387 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				CABFC3D824D7A2630036A387 /* TrackDrive */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		E4BEC72BCC8BF4C88E83105D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +286,7 @@
 			buildPhases = (
 				A97CE4A5AE31E35881B9167A /* [CP] Check Pods Manifest.lock */,
 				CAB592C724CA89E3001A005A /* Sources */,
+				CA5E937324CBAE5900C36AC3 /* ShellScript */,
 				CAB592C824CA89E3001A005A /* Frameworks */,
 				CAB592C924CA89E3001A005A /* Resources */,
 			);
@@ -346,6 +452,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CA5E937324CBAE5900C36AC3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		E7C7B96CDC881807D7559A9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,9 +498,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA5E937524CBE69100C36AC3 /* UIViewExtension.swift in Sources */,
 				CAB592D924CA89E3001A005A /* Drive.xcdatamodeld in Sources */,
-				CAB592D324CA89E3001A005A /* ViewController.swift in Sources */,
+				CAB592D324CA89E3001A005A /* DriveCoordinator.swift in Sources */,
+				CABFC3D024D7A0480036A387 /* RegisterResponse.swift in Sources */,
+				CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */,
+				CABFC3CC24D79FDA0036A387 /* Endpoint.swift in Sources */,
+				CA5E937B24CBEAE000C36AC3 /* DriveVC.swift in Sources */,
+				CADEB27024CD147E0048056D /* DriveButtonViewModel.swift in Sources */,
+				CABFC3DA24D7A2A40036A387 /* User.swift in Sources */,
+				CABFC3C824D79F330036A387 /* DriveService.swift in Sources */,
 				CAB592CF24CA89E3001A005A /* AppDelegate.swift in Sources */,
+				CADEB26E24CD145D0048056D /* DriveButton.swift in Sources */,
+				CA5E937924CBE71500C36AC3 /* MapVC.swift in Sources */,
+				CABFC3CE24D7A00C0036A387 /* RequestFactory.swift in Sources */,
+				CABFC3CA24D79F830036A387 /* LocationProvider.swift in Sources */,
+				CA5E937724CBE6D600C36AC3 /* Storyboard.swift in Sources */,
+				CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */,
 				CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +691,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Drive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,6 +710,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Drive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
