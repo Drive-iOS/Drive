@@ -9,7 +9,7 @@
 import Foundation
 
 struct User {
-    // swiftlint:disable:next identifier_name
+    // swiftlint:disable identifier_name
     var id: String
 
     init(registerResponse: RegisterResponse) {

@@ -28,11 +28,6 @@ struct SaveDriveRequest: Codable {
     }
 }
 
-struct RegisterRequest: Codable {
-    let firstname: String?
-    let lastname: String?
-}
-
 class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegate {
     @IBOutlet private var mapContainerView: UIView!
     @IBOutlet private var driveInfoContainerView: UIView!
