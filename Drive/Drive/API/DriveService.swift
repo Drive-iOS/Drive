@@ -66,7 +66,6 @@ class DriveService: DriveServiceType {
             return
         }
 
-
         let endpoint = Endpoint.drive(user: user, session: session)
 
         guard let request = RequestFactory.urlRequest(for: endpoint) else {
