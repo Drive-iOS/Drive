@@ -15,4 +15,8 @@ struct User {
     init(registerResponse: RegisterResponse) {
         id = registerResponse.userID
     }
+
+    init(id: String) {
+        self.id = id
+    }
 }

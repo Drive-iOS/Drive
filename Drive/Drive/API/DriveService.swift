@@ -8,14 +8,23 @@
 
 import Foundation
 
+enum SaveDriveResult {
+    case success
+    case failure(DriveServiceError)
+}
+
 enum DriveServiceError: Error {
     case invalidRequest
     case invalidResponse
+    case savingFailed
+    case invalidCurrentUser
 }
 
 class DriveService: DriveServiceType {
 
     // MARK: - Properties
+
+    static let shared = DriveService()
 
     var user: User?
     let urlSession = URLSession(configuration: .default)
@@ -23,6 +32,7 @@ class DriveService: DriveServiceType {
     // MARK: - Type Aliases
 
     typealias RegisterCompletion = (Result<User, DriveServiceError>) -> Void
+    typealias SaveDriveCompletion = (SaveDriveResult) -> Void
 
     // MARK: - Register
 
@@ -45,6 +55,39 @@ class DriveService: DriveServiceType {
 
             let user = User(registerResponse: registerResponse)
             completion(.success(user))
+        }
+
+        dataTask.resume()
+    }
+
+    func saveDrive(session: DrivingSession, completion: @escaping SaveDriveCompletion) {
+        guard let user = user else {
+            completion(.failure(.invalidCurrentUser))
+            return
+        }
+
+
+        let endpoint = Endpoint.drive(user: user, session: session)
+
+        guard let request = RequestFactory.urlRequest(for: endpoint) else {
+            completion(.failure(.invalidRequest))
+            return
+        }
+
+        let dataTask = urlSession.dataTask(with: request) { data, _, _ in
+            guard let data = data else {
+                return completion(.failure(.invalidResponse))
+            }
+
+            guard let driveResponse = try? JSONDecoder().decode(DriveResponse.self, from: data) else {
+                return completion(.failure(.invalidResponse))
+            }
+
+            if driveResponse.success {
+                completion(.success)
+            } else {
+                completion(.failure(.savingFailed))
+            }
         }
 
         dataTask.resume()

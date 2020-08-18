@@ -19,6 +19,13 @@ struct RequestFactory {
             return nil
         }
 
-        return URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = endpoint.httpMethod
+        request.httpBody = endpoint.body
+        endpoint.headerFieldProperties.forEach { (headerKey, headerProperty) in
+            request.setValue(headerProperty, forHTTPHeaderField: headerKey)
+        }
+
+        return request
     }
 }

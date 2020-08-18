@@ -9,5 +9,5 @@
 import Foundation
 
 struct RegisterResponse: Decodable {
-    var userID: String
+    let userID: String
 }

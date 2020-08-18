@@ -20,7 +20,6 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
         self.locationManager = locationManager
         super.init()
         locationManager.delegate = self
-        locationManager.distanceFilter = 0.01
     }
 
     func requestLocationPermissionsIfNeeded() {

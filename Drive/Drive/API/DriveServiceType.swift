@@ -9,5 +9,6 @@
 import Foundation
 
 protocol DriveServiceType {
+    var user: User? { get set }
     func register(completion: @escaping DriveService.RegisterCompletion)
 }
