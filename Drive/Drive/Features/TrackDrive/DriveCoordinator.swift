@@ -70,11 +70,20 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
         switch driveMode {
         case .start:
             saveDrive()
+            showDriveTrail()
             drivingSession = DrivingSession()
 
         case .end:
             locationProvider.requestLocationPermissionsIfNeeded()
         }
+    }
+
+    private func showDriveTrail() {
+        guard let drivingSession = drivingSession else {
+            return
+        }
+
+        mapVC.showDriveTrail(with: drivingSession)
     }
 
     private func saveDrive() {
