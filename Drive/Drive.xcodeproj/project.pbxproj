@@ -15,6 +15,7 @@
 		CA5E937724CBE6D600C36AC3 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937624CBE6D600C36AC3 /* Storyboard.swift */; };
 		CA5E937924CBE71500C36AC3 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937824CBE71500C36AC3 /* MapVC.swift */; };
 		CA5E937B24CBEAE000C36AC3 /* DriveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */; };
+		CA7879BB24ECBA390013E2DF /* DriveTrailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */; };
 		CA916D0724D8EB6F00601E0C /* DriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA916D0624D8EB6F00601E0C /* DriveResponse.swift */; };
 		CAB592CF24CA89E3001A005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592CE24CA89E3001A005A /* AppDelegate.swift */; };
 		CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D024CA89E3001A005A /* SceneDelegate.swift */; };
@@ -72,6 +73,7 @@
 		CA5E937624CBE6D600C36AC3 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		CA5E937824CBE71500C36AC3 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveVC.swift; sourceTree = "<group>"; };
+		CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveTrailOverlay.swift; sourceTree = "<group>"; };
 		CA916D0624D8EB6F00601E0C /* DriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveResponse.swift; sourceTree = "<group>"; };
 		CAB592CB24CA89E3001A005A /* Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB592CE24CA89E3001A005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		CA7879BC24ECBF5B0013E2DF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		CAB592C224CA89E2001A005A = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +200,7 @@
 				CABFC3D324D7A1380036A387 /* API */,
 				CA35793124EB656800E594A8 /* User */,
 				CABFC3D724D7A2520036A387 /* Location */,
+				CA7879BC24ECBF5B0013E2DF /* Map */,
 				CABFC3E024D7A4C90036A387 /* Features */,
 				CABFC3DE24D7A3120036A387 /* Storyboard */,
 				CABFC3DF24D7A39C0036A387 /* Extensions */,
@@ -532,6 +543,7 @@
 				CAB592D324CA89E3001A005A /* DriveCoordinator.swift in Sources */,
 				CABFC3D024D7A0480036A387 /* RegisterResponse.swift in Sources */,
 				CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */,
+				CA7879BB24ECBA390013E2DF /* DriveTrailOverlay.swift in Sources */,
 				CABFC3CC24D79FDA0036A387 /* Endpoint.swift in Sources */,
 				CA5E937B24CBEAE000C36AC3 /* DriveVC.swift in Sources */,
 				CADEB27024CD147E0048056D /* DriveButtonViewModel.swift in Sources */,
