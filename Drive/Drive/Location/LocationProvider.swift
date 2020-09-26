@@ -12,14 +12,28 @@ protocol LocationProviderDelegate: AnyObject {
     func didUpdateLocation(locations: [CLLocation])
 }
 
+enum LocationDataSource {
+    case device
+    case debug
+}
+
 class LocationProvider: NSObject, CLLocationManagerDelegate {
-    var locationManager: CLLocationManager
+    var locationManager: CLLocationManager?
+    let locationDataSource: LocationDataSource
     weak var delegate: LocationProviderDelegate?
 
-    init(locationManager: CLLocationManager = CLLocationManager()) {
-        self.locationManager = locationManager
+    init(locationDataSource: LocationDataSource = .device) {
+        switch locationDataSource {
+        case .device:
+            locationManager = CLLocationManager()
+
+        case .debug:
+            locationManager = nil
+        }
+
+        self.locationDataSource = locationDataSource
         super.init()
-        locationManager.delegate = self
+        locationManager?.delegate = self
     }
 
     func requestLocationPermissionsIfNeeded() {
@@ -29,7 +43,7 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
             return
         }
 
-        locationManager.requestWhenInUseAuthorization()
+        locationManager?.requestAlwaysAuthorization()
     }
 
     // MARK: - CLLocationManagerDelegate
@@ -45,6 +59,6 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
             return
         }
 
-        locationManager.startUpdatingLocation()
+        locationManager?.startUpdatingLocation()
     }
 }

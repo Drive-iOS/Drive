@@ -9,13 +9,14 @@
 import UIKit
 import MapKit
 
-enum DriveMode: Equatable {
-    case start
-    case end
+enum DriveState: Equatable {
+    case readyToStart
+    case inProgress
+    case completed
 }
 
 protocol DriveDelegate: AnyObject {
-    func didUpdateDriveMode(_ driveMode: DriveMode)
+    func didUpdate(_ driveState: DriveState)
 }
 
 class DriveVC: UIViewController, StoryboardInstantiable {
@@ -23,7 +24,7 @@ class DriveVC: UIViewController, StoryboardInstantiable {
 
     weak var delegate: DriveDelegate?
 
-    private var driveMode: DriveMode = .start
+    private var driveState: DriveState = .readyToStart
 
     static var appStoryboard: Storyboard {
         return .main
@@ -35,26 +36,30 @@ class DriveVC: UIViewController, StoryboardInstantiable {
     }
 
     private func setupStartDriveButton() {
-        updateButton(withDriveMode: driveMode)
+        updateButton(withDriveState: driveState)
     }
 
     @IBAction func tappedDriveButton(_ sender: UIButton) {
-        let updatedDriveMode: DriveMode
+        let updatedDriveState: DriveState
 
-        switch driveMode {
-        case .start:
-            updatedDriveMode = .end
+        switch driveState {
+        case .readyToStart:
+            updatedDriveState = .inProgress
 
-        case .end:
-            updatedDriveMode = .start
+        case .inProgress:
+            updatedDriveState = .completed
+
+        case .completed:
+            updatedDriveState = .readyToStart
         }
 
-        updateButton(withDriveMode: updatedDriveMode)
+        updateButton(withDriveState: updatedDriveState)
     }
+    
 
-    private func updateButton(withDriveMode driveMode: DriveMode) {
-        self.driveMode = driveMode
-        driveButton.update(withViewModel: DriveButtonViewModel(driveMode: driveMode))
-        delegate?.didUpdateDriveMode(driveMode)
+    private func updateButton(withDriveState driveState: DriveState) {
+        self.driveState = driveState
+        driveButton.update(withViewModel: DriveButtonViewModel(driveState: driveState))
+        delegate?.didUpdateDriveMode(driveState)
     }
 }

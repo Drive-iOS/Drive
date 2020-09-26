@@ -12,15 +12,19 @@ struct DriveButtonViewModel {
     var title: String
     var backgroundColor: UIColor
 
-    init(driveMode: DriveMode) {
-        switch driveMode {
-        case .start:
+    init(driveState: DriveState) {
+        switch driveState {
+        case .readyToStart:
             title = "Start Drive"
             backgroundColor = .blue
 
-        case .end:
+        case .inProgress:
             title = "End Drive"
             backgroundColor = .red
+
+        case .completed:
+            title = "Review Drive"
+            backgroundColor = .green
         }
     }
 }

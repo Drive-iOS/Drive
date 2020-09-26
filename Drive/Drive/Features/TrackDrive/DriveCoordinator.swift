@@ -65,16 +65,18 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
 
     // MARK: - DriveDelegate
 
-    func didUpdateDriveMode(_ driveMode: DriveMode) {
-        // Maybe DriveMode can have more descriptive cases 🤔
-        switch driveMode {
-        case .start:
+    func didUpdate(_ driveState: DriveState) {
+        switch driveState {
+        case .readyToStart:
+            break
+
+        case .inProgress:
+            locationProvider.requestLocationPermissionsIfNeeded()
+
+        case .completed:
             saveDrive()
             showDriveTrail()
             drivingSession = DrivingSession()
-
-        case .end:
-            locationProvider.requestLocationPermissionsIfNeeded()
         }
     }
 
@@ -107,6 +109,5 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     func didUpdateLocation(locations: [CLLocation]) {
         let coordinates = locations.map { $0.coordinate }
         drivingSession?.locations.append(contentsOf: coordinates)
-        mapVC.update(withLocations: locations)
     }
 }
