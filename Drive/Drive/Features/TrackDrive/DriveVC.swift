@@ -55,11 +55,10 @@ class DriveVC: UIViewController, StoryboardInstantiable {
 
         updateButton(withDriveState: updatedDriveState)
     }
-    
 
     private func updateButton(withDriveState driveState: DriveState) {
         self.driveState = driveState
         driveButton.update(withViewModel: DriveButtonViewModel(driveState: driveState))
-        delegate?.didUpdateDriveMode(driveState)
+        delegate?.didUpdate(driveState)
     }
 }
