@@ -78,11 +78,11 @@ class DriveService: DriveServiceType {
                 return completion(.failure(.invalidResponse))
             }
 
-            guard let driveResponse = try? JSONDecoder().decode(DriveResponse.self, from: data) else {
+            guard let saveDriveResponse = try? JSONDecoder().decode(SaveDriveResponse.self, from: data) else {
                 return completion(.failure(.invalidResponse))
             }
 
-            if driveResponse.success {
+            if saveDriveResponse.success {
                 completion(.success)
             } else {
                 completion(.failure(.savingFailed))

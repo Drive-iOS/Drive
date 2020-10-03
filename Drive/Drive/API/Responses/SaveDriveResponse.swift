@@ -1,5 +1,5 @@
 //
-//  DriveResponse.swift
+//  SaveDriveResponse.swift
 //  Drive
 //
 //  Created by Amanuel Ketebo on 8/3/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct DriveResponse: Decodable {
+struct SaveDriveResponse: Decodable {
     let success: Bool
 }
