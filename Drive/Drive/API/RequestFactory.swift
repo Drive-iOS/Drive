@@ -9,10 +9,11 @@
 import Foundation
 
 struct RequestFactory {
-    static func urlRequest(for endpoint: Endpoint) -> URLRequest? {
+    static func urlRequest(for endpoint: Endpoint, using bundle: Bundle = Bundle.main) -> URLRequest? {
         var components = URLComponents()
-        components.scheme = endpoint.scheme
-        components.host = endpoint.host
+        components.scheme = endpoint.scheme(using: bundle)
+        components.host = endpoint.host(using: bundle)
+        components.port = endpoint.port(using: bundle)
         components.path = endpoint.path
 
         guard let url = components.url else {

@@ -16,12 +16,29 @@ enum Endpoint {
         return 1
     }
 
-    var scheme: String {
-        return "https"
+    func scheme(using bundle: Bundle) -> String {
+        guard let scheme = bundle.object(forInfoDictionaryKey: "DriveServiceScheme") as? String else {
+            fatalError("Expected DriveServiceScheme to exist")
+        }
+
+        return scheme
     }
 
-    var host: String {
-        return "drive-heroku-api.herokuapp.com"
+    func host(using bundle: Bundle) -> String {
+        guard let host = bundle.object(forInfoDictionaryKey: "DriveServiceDomain") as? String else {
+            fatalError("Expected DriveServiceDomain to exist")
+        }
+
+        return host
+    }
+
+    func port(using bundle: Bundle) -> Int? {
+        guard let host = bundle.object(forInfoDictionaryKey: "DriveServicePort") as? String,
+              !host.isEmpty else {
+            return nil
+        }
+
+        return Int(host)
     }
 
     var path: String {

@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Helps us track your drives for you</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Helps us track your drives for you</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Helps us track your drives for you</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -24,8 +18,25 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>DriveServiceDomain</key>
+	<string>$(DRIVE_SERVICE_DOMAIN)</string>
+	<key>DriveServicePort</key>
+	<string>$(DRIVE_SERVICE_PORT)</string>
+	<key>DriveServiceScheme</key>
+	<string>$(DRIVE_SERVICE_SCHEME)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Helps us track your drives for you</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Helps us track your drives for you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Helps us track your drives for you</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
