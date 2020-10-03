@@ -15,6 +15,8 @@
 		CA5E937924CBE71500C36AC3 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937824CBE71500C36AC3 /* MapVC.swift */; };
 		CA5E937B24CBEAE000C36AC3 /* DriveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */; };
 		CA7879BB24ECBA390013E2DF /* DriveTrailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */; };
+		CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD3825283A06001FDCF1 /* edit-plist.sh */; };
+		CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD4325283B38001FDCF1 /* swiftlint.sh */; };
 		CA916D0724D8EB6F00601E0C /* DriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA916D0624D8EB6F00601E0C /* DriveResponse.swift */; };
 		CAB592CF24CA89E3001A005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592CE24CA89E3001A005A /* AppDelegate.swift */; };
 		CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D024CA89E3001A005A /* SceneDelegate.swift */; };
@@ -76,6 +78,8 @@
 		CA5E937824CBE71500C36AC3 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveVC.swift; sourceTree = "<group>"; };
 		CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveTrailOverlay.swift; sourceTree = "<group>"; };
+		CA82DD3825283A06001FDCF1 /* edit-plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "edit-plist.sh"; sourceTree = "<group>"; };
+		CA82DD4325283B38001FDCF1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		CA916D0624D8EB6F00601E0C /* DriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveResponse.swift; sourceTree = "<group>"; };
 		CAB592CB24CA89E3001A005A /* Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB592CE24CA89E3001A005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +190,15 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		CA82DD3725283A05001FDCF1 /* BuildPhases */ = {
+			isa = PBXGroup;
+			children = (
+				CA82DD4325283B38001FDCF1 /* swiftlint.sh */,
+				CA82DD3825283A06001FDCF1 /* edit-plist.sh */,
+			);
+			path = BuildPhases;
+			sourceTree = "<group>";
+		};
 		CAB592C224CA89E2001A005A = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +233,7 @@
 				CABFC3E024D7A4C90036A387 /* Features */,
 				CABFC3DE24D7A3120036A387 /* Storyboard */,
 				CABFC3DF24D7A39C0036A387 /* Extensions */,
+				CA82DD3725283A05001FDCF1 /* BuildPhases */,
 				CAB592DA24CA89E4001A005A /* Assets.xcassets */,
 				CAB592DF24CA89E4001A005A /* Info.plist */,
 				CAB592D724CA89E3001A005A /* Drive.xcdatamodeld */,
@@ -432,6 +446,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAB592DE24CA89E4001A005A /* LaunchScreen.storyboard in Resources */,
+				CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */,
+				CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */,
 				CAB592DB24CA89E4001A005A /* Assets.xcassets in Resources */,
 				CAB592D624CA89E3001A005A /* Main.storyboard in Resources */,
 			);
@@ -536,7 +552,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "$SRCROOT/Drive/BuildPhases/swiftlint.sh\n";
 		};
 		CA82DD1325281F38001FDCF1 /* Edit Plist Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -554,7 +570,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/BuildPhases/edit-plist.sh\n";
+			shellScript = "$SRCROOT/Drive/BuildPhases/edit-plist.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -640,7 +656,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CA21927B25280A3800CD4CA9 /* Debug Local */ = {
+		CA21927B25280A3800CD4CA9 /* Debug Localhost */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_ARBITRARY_LOADS = YES;
@@ -703,9 +719,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = "Debug Local";
+			name = "Debug Localhost";
 		};
-		CA21927C25280A3800CD4CA9 /* Debug Local */ = {
+		CA21927C25280A3800CD4CA9 /* Debug Localhost */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E729F4D91E209CADF75F65A /* Pods-Drive.debug local.xcconfig */;
 			buildSettings = {
@@ -723,9 +739,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug Local";
+			name = "Debug Localhost";
 		};
-		CA21927D25280A3800CD4CA9 /* Debug Local */ = {
+		CA21927D25280A3800CD4CA9 /* Debug Localhost */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B755B90B4820942B3C7320FD /* Pods-DriveTests.debug local.xcconfig */;
 			buildSettings = {
@@ -745,9 +761,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drive.app/Drive";
 			};
-			name = "Debug Local";
+			name = "Debug Localhost";
 		};
-		CA21927E25280A3800CD4CA9 /* Debug Local */ = {
+		CA21927E25280A3800CD4CA9 /* Debug Localhost */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2135AE72C9526E2A152F3EB /* Pods-Drive-DriveUITests.debug local.xcconfig */;
 			buildSettings = {
@@ -765,7 +781,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Drive;
 			};
-			name = "Debug Local";
+			name = "Debug Localhost";
 		};
 		CAB592F624CA89E4001A005A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1022,7 +1038,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAB592F624CA89E4001A005A /* Debug */,
-				CA21927B25280A3800CD4CA9 /* Debug Local */,
+				CA21927B25280A3800CD4CA9 /* Debug Localhost */,
 				CAB592F724CA89E4001A005A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1032,7 +1048,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAB592F924CA89E4001A005A /* Debug */,
-				CA21927C25280A3800CD4CA9 /* Debug Local */,
+				CA21927C25280A3800CD4CA9 /* Debug Localhost */,
 				CAB592FA24CA89E4001A005A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1042,7 +1058,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAB592FC24CA89E4001A005A /* Debug */,
-				CA21927D25280A3800CD4CA9 /* Debug Local */,
+				CA21927D25280A3800CD4CA9 /* Debug Localhost */,
 				CAB592FD24CA89E4001A005A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1052,7 +1068,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAB592FF24CA89E4001A005A /* Debug */,
-				CA21927E25280A3800CD4CA9 /* Debug Local */,
+				CA21927E25280A3800CD4CA9 /* Debug Localhost */,
 				CAB5930024CA89E4001A005A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
