@@ -14,5 +14,5 @@ struct SingleDriveCoordinate: Decodable {
 }
 
 struct SingleDriveResponse: Decodable {
-    let coordinates: [DriveCoordinate]
+    let coordinates: [SingleDriveCoordinate]
 }
