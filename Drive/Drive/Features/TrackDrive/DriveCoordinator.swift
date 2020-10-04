@@ -109,5 +109,6 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     func didUpdateLocation(locations: [CLLocation]) {
         let coordinates = locations.map { $0.coordinate }
         drivingSession?.locations.append(contentsOf: coordinates)
+        showDriveTrail()
     }
 }
