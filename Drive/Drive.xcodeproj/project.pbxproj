@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA1889A325298DE100BEB498 /* CvilleDebugCoordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = CA1889A225298DE100BEB498 /* CvilleDebugCoordinates.json */; };
 		CA1889AB252991EC00BEB498 /* DebugCoordinatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1889AA252991EC00BEB498 /* DebugCoordinatesManager.swift */; };
+		CA1889BC252A72DA00BEB498 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1889BB252A72DA00BEB498 /* ArrayExtension.swift */; };
 		CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35792C24EB64D600E594A8 /* UserProvider.swift */; };
 		CA35792F24EB651C00E594A8 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35792E24EB651C00E594A8 /* RegisterRequest.swift */; };
 		CA35793324EB67B700E594A8 /* SaveDriveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35793224EB67B700E594A8 /* SaveDriveRequest.swift */; };
@@ -77,6 +78,7 @@
 		C7437B6FC954936A292220AE /* Pods-Drive-DriveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive-DriveUITests.release.xcconfig"; path = "Target Support Files/Pods-Drive-DriveUITests/Pods-Drive-DriveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CA1889A225298DE100BEB498 /* CvilleDebugCoordinates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CvilleDebugCoordinates.json; sourceTree = "<group>"; };
 		CA1889AA252991EC00BEB498 /* DebugCoordinatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCoordinatesManager.swift; sourceTree = "<group>"; };
+		CA1889BB252A72DA00BEB498 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		CA35792C24EB64D600E594A8 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		CA35792E24EB651C00E594A8 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		CA35793224EB67B700E594A8 /* SaveDriveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDriveRequest.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				CA5E937424CBE69100C36AC3 /* UIViewExtension.swift */,
+				CA1889BB252A72DA00BEB498 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				CA9585872528439600F8DD2D /* AllDrivesResponse.swift in Sources */,
 				CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */,
 				CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */,
+				CA1889BC252A72DA00BEB498 /* ArrayExtension.swift in Sources */,
 				CA9585922528442800F8DD2D /* SingleDriveRequest.swift in Sources */,
 				CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */,
 				CA35793324EB67B700E594A8 /* SaveDriveRequest.swift in Sources */,

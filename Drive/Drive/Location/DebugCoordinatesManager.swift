@@ -14,7 +14,7 @@ protocol DebugCoordinatesManagerDelegate: AnyObject {
 }
 
 enum DebugCoordinatesSource {
-    case cville
+    case charlottesville
     case rockville
 
     var filename: String {
@@ -27,24 +27,35 @@ enum DebugCoordinatesSource {
 }
 
 class DebugCoordinatesManager {
-    let bundle: Bundle
-    var debugCoordinates: [SingleDriveCoordinate]?
+    // MARK: - Properties
+
+    private let bundle: Bundle
+
+    private let locationUpdateSecondsLimit = 5
+    private var splitCoordinates: [[SingleDriveCoordinate]]?
+    private var currentSplitCoordinatesIndex = 1
+    private var timer: Timer?
+
     weak var delegate: DebugCoordinatesManagerDelegate?
+
+    // MARK: - Init
 
     init(bundle: Bundle = .main) {
         self.bundle = bundle
     }
 
+    // MARK: - Start updates
+
     func startReceivingLocationUpdates() {
-        guard let debugCoordinates = parseDebugCoordinates(from: .cville) else {
+        reset()
+        guard let debugCoordinates = parseDebugCoordinates(from: .charlottesville) else {
             return
         }
 
-        self.debugCoordinates = debugCoordinates
         startNotifyingLocationUpdates(with: debugCoordinates)
     }
 
-    func parseDebugCoordinates(from source: DebugCoordinatesSource) -> [SingleDriveCoordinate]? {
+    private func parseDebugCoordinates(from source: DebugCoordinatesSource) -> [SingleDriveCoordinate]? {
         guard let coordinatesURL = bundle.url(forResource: source.filename, withExtension: source.extensionName),
               let debugCoordinatesData = try? Data(contentsOf: coordinatesURL) else {
             return nil
@@ -53,7 +64,31 @@ class DebugCoordinatesManager {
         return try? JSONDecoder().decode([SingleDriveCoordinate].self, from: debugCoordinatesData)
     }
 
-    func startNotifyingLocationUpdates(with debugCoordinates: [SingleDriveCoordinate]) {
-        // TODO: Create algorithm to split up debugCoordinates over a period of time
+    // MARK: - Notify updates
+
+    private func startNotifyingLocationUpdates(with debugCoordinates: [SingleDriveCoordinate]) {
+        let chunkLength = debugCoordinates.count / locationUpdateSecondsLimit
+
+        splitCoordinates = debugCoordinates.chunked(into: chunkLength)
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] in
+            guard let self = self else {
+                return
+            }
+
+            if self.currentSplitCoordinatesIndex == (self.locationUpdateSecondsLimit - 1) {
+                self.reset()
+            } else {
+                self.currentSplitCoordinatesIndex += 1
+            }
+        })
+    }
+
+    // MARK: - Reset
+
+    private func reset() {
+        splitCoordinates = nil
+        currentSplitCoordinatesIndex = 0
+        timer?.invalidate()
+        timer = nil
     }
 }
