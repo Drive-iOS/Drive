@@ -20,7 +20,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     private var drivingSession: DrivingSession?
     private var mapVC: MapVC!
     private var driveVC: DriveVC!
-    private var locationProvider = LocationProvider()
+    private var locationProvider = LocationProvider(locationSource: .device(CLLocationManager()))
 
     // MARK: - Life cycle
 
@@ -71,7 +71,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
             break
 
         case .inProgress:
-            locationProvider.requestLocationPermissionsIfNeeded()
+            locationProvider.startReceivingLocationUpdates()
 
         case .completed:
             saveDrive()

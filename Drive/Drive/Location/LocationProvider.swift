@@ -12,38 +12,50 @@ protocol LocationProviderDelegate: AnyObject {
     func didUpdateLocation(locations: [CLLocation])
 }
 
-enum LocationDataSource {
-    case device
-    case debug
+enum LocationSource {
+    case device(CLLocationManager)
+    case debug(DebugCoordinatesManager)
 }
 
-class LocationProvider: NSObject, CLLocationManagerDelegate {
-    var locationManager: CLLocationManager?
-    let locationDataSource: LocationDataSource
+class LocationProvider: NSObject, CLLocationManagerDelegate, DebugCoordinatesManagerDelegate {
+    let locationSource: LocationSource
     weak var delegate: LocationProviderDelegate?
 
-    init(locationDataSource: LocationDataSource = .device) {
-        switch locationDataSource {
-        case .device:
-            locationManager = CLLocationManager()
-
-        case .debug:
-            locationManager = nil
-        }
-
-        self.locationDataSource = locationDataSource
+    init(locationSource: LocationSource) {
+        self.locationSource = locationSource
         super.init()
-        locationManager?.delegate = self
+
+        switch locationSource {
+        case .device(let locationManager):
+            locationManager.delegate = self
+
+        case .debug(let debugCoordinatesManager):
+            debugCoordinatesManager.delegate = self
+        }
+    }
+
+    func startReceivingLocationUpdates() {
+        switch locationSource {
+        case .device:
+            requestLocationPermissionsIfNeeded()
+
+        case .debug(let debugCoordinatesManager):
+            debugCoordinatesManager.startReceivingLocationUpdates()
+        }
     }
 
     func requestLocationPermissionsIfNeeded() {
+        guard case .device(let locationManager) = locationSource else {
+            return
+        }
+
         let locationAuthStatus = CLLocationManager.authorizationStatus()
 
         guard locationAuthStatus == .notDetermined else {
             return
         }
 
-        locationManager?.requestAlwaysAuthorization()
+        locationManager.requestAlwaysAuthorization()
     }
 
     // MARK: - CLLocationManagerDelegate
@@ -55,10 +67,18 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
-        guard status == .authorizedWhenInUse else {
+        guard status == .authorizedWhenInUse,
+              case .device(let locationManager) = locationSource else {
             return
         }
 
-        locationManager?.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
+    }
+
+    // MARK: - DebugCoordinatesManagerDelegate
+
+    func debugCoordinatesProvider(_ provider: DebugCoordinatesManager,
+                                  didUpdateLocations locations: [CLLocation]) {
+        delegate?.didUpdateLocation(locations: locations)
     }
 }
