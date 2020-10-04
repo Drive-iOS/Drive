@@ -20,7 +20,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     private var drivingSession: DrivingSession?
     private var mapVC: MapVC!
     private var driveVC: DriveVC!
-    private var locationProvider = LocationProvider(locationSource: .device(CLLocationManager()))
+    private var locationProvider = LocationProvider(locationSource: .debug(DebugCoordinatesManager()))
 
     // MARK: - Life cycle
 
