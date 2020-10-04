@@ -70,7 +70,7 @@ class DebugCoordinatesManager {
         let chunkLength = debugCoordinates.count / locationUpdateSecondsLimit
 
         splitCoordinates = debugCoordinates.chunked(into: chunkLength)
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
             guard let self = self else {
                 return
             }
