@@ -32,7 +32,7 @@ class DebugCoordinatesManager {
     private let bundle: Bundle
 
     private let locationUpdateSecondsLimit = 5
-    private var splitCoordinates: [[SingleDriveCoordinate]]?
+    private var splitCoordinates: [[CLLocation]]?
     private var currentSplitCoordinatesIndex = 1
     private var timer: Timer?
 
@@ -48,25 +48,28 @@ class DebugCoordinatesManager {
 
     func startReceivingLocationUpdates() {
         reset()
-        guard let debugCoordinates = parseDebugCoordinates(from: .charlottesville) else {
+        guard let clLocations = parseDebugCoordinates(from: .charlottesville) else {
             return
         }
 
-        startNotifyingLocationUpdates(with: debugCoordinates)
+        startNotifyingLocationUpdates(with: clLocations)
     }
 
-    private func parseDebugCoordinates(from source: DebugCoordinatesSource) -> [SingleDriveCoordinate]? {
+    private func parseDebugCoordinates(from source: DebugCoordinatesSource) -> [CLLocation]? {
         guard let coordinatesURL = bundle.url(forResource: source.filename, withExtension: source.extensionName),
               let debugCoordinatesData = try? Data(contentsOf: coordinatesURL) else {
             return nil
         }
 
-        return try? JSONDecoder().decode([SingleDriveCoordinate].self, from: debugCoordinatesData)
+        let coordinates = try? JSONDecoder().decode([SingleDriveCoordinate].self, from: debugCoordinatesData)
+        let clLocations = coordinates?.map({ CLLocation(latitude: $0.latitude, longitude: $0.longitude) })
+
+        return clLocations
     }
 
     // MARK: - Notify updates
 
-    private func startNotifyingLocationUpdates(with debugCoordinates: [SingleDriveCoordinate]) {
+    private func startNotifyingLocationUpdates(with debugCoordinates: [CLLocation]) {
         let chunkLength = debugCoordinates.count / locationUpdateSecondsLimit
 
         splitCoordinates = debugCoordinates.chunked(into: chunkLength)
@@ -74,6 +77,10 @@ class DebugCoordinatesManager {
             guard let self = self else {
                 return
             }
+
+            let currentIndex = self.currentSplitCoordinatesIndex
+            let locations = self.splitCoordinates?[currentIndex] ?? []
+            self.delegate?.debugCoordinatesProvider(self, didUpdateLocations: locations)
 
             if self.currentSplitCoordinatesIndex == (self.locationUpdateSecondsLimit - 1) {
                 self.reset()
