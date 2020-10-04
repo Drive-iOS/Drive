@@ -33,8 +33,7 @@ enum Endpoint {
     }
 
     func port(using bundle: Bundle) -> Int? {
-        guard let host = bundle.object(forInfoDictionaryKey: "DriveServicePort") as? String,
-              !host.isEmpty else {
+        guard let host = bundle.object(forInfoDictionaryKey: "DriveServicePort") as? String else {
             return nil
         }
 
