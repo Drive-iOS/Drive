@@ -77,8 +77,8 @@ class LocationProvider: NSObject, CLLocationManagerDelegate, DebugCoordinatesMan
 
     // MARK: - DebugCoordinatesManagerDelegate
 
-    func debugCoordinatesProvider(_ provider: DebugCoordinatesManager,
-                                  didUpdateLocations locations: [CLLocation]) {
+    func debugCoordinatesManager(_ manager: DebugCoordinatesManager,
+                                 didUpdateLocations locations: [CLLocation]) {
         delegate?.didUpdateLocation(locations: locations)
     }
 }

@@ -9,8 +9,8 @@
 import MapKit
 
 protocol DebugCoordinatesManagerDelegate: AnyObject {
-    func debugCoordinatesProvider(_ provider: DebugCoordinatesManager,
-                                  didUpdateLocations locations: [CLLocation])
+    func debugCoordinatesManager(_ manager: DebugCoordinatesManager,
+                                 didUpdateLocations locations: [CLLocation])
 }
 
 enum DebugCoordinatesSource {
@@ -80,7 +80,7 @@ class DebugCoordinatesManager {
 
             let currentIndex = self.currentSplitCoordinatesIndex
             let locations = self.splitCoordinates?[currentIndex] ?? []
-            self.delegate?.debugCoordinatesProvider(self, didUpdateLocations: locations)
+            self.delegate?.debugCoordinatesManager(self, didUpdateLocations: locations)
 
             if self.currentSplitCoordinatesIndex == (self.locationUpdateSecondsLimit - 1) {
                 self.reset()
