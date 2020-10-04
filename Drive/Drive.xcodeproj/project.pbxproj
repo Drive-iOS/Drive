@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA1889A325298DE100BEB498 /* DebugCoordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = CA1889A225298DE100BEB498 /* DebugCoordinates.json */; };
+		CA1889A325298DE100BEB498 /* CvilleDebugCoordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = CA1889A225298DE100BEB498 /* CvilleDebugCoordinates.json */; };
 		CA1889AB252991EC00BEB498 /* DebugCoordinatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1889AA252991EC00BEB498 /* DebugCoordinatesManager.swift */; };
 		CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35792C24EB64D600E594A8 /* UserProvider.swift */; };
 		CA35792F24EB651C00E594A8 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35792E24EB651C00E594A8 /* RegisterRequest.swift */; };
@@ -75,7 +75,7 @@
 		A9755465221F031F47334A80 /* libPods-Drive-DriveUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Drive-DriveUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B755B90B4820942B3C7320FD /* Pods-DriveTests.debug local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveTests.debug local.xcconfig"; path = "Target Support Files/Pods-DriveTests/Pods-DriveTests.debug local.xcconfig"; sourceTree = "<group>"; };
 		C7437B6FC954936A292220AE /* Pods-Drive-DriveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive-DriveUITests.release.xcconfig"; path = "Target Support Files/Pods-Drive-DriveUITests/Pods-Drive-DriveUITests.release.xcconfig"; sourceTree = "<group>"; };
-		CA1889A225298DE100BEB498 /* DebugCoordinates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DebugCoordinates.json; sourceTree = "<group>"; };
+		CA1889A225298DE100BEB498 /* CvilleDebugCoordinates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CvilleDebugCoordinates.json; sourceTree = "<group>"; };
 		CA1889AA252991EC00BEB498 /* DebugCoordinatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCoordinatesManager.swift; sourceTree = "<group>"; };
 		CA35792C24EB64D600E594A8 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		CA35792E24EB651C00E594A8 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 			children = (
 				CABFC3C924D79F830036A387 /* LocationProvider.swift */,
 				CA1889AA252991EC00BEB498 /* DebugCoordinatesManager.swift */,
-				CA1889A225298DE100BEB498 /* DebugCoordinates.json */,
+				CA1889A225298DE100BEB498 /* CvilleDebugCoordinates.json */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -464,7 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAB592DE24CA89E4001A005A /* LaunchScreen.storyboard in Resources */,
-				CA1889A325298DE100BEB498 /* DebugCoordinates.json in Resources */,
+				CA1889A325298DE100BEB498 /* CvilleDebugCoordinates.json in Resources */,
 				CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */,
 				CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */,
 				CAB592DB24CA89E4001A005A /* Assets.xcassets in Resources */,
