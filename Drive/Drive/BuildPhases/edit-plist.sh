@@ -1,4 +1,4 @@
-# Allow arbitrary loads only for `Debug Local` configuration
+# Allow arbitrary loads only for `Debug Localhost` configuration
 
 /usr/libexec/PlistBuddy -c "Delete :NSAppTransportSecurity" "${INFOPLIST_FILE}"
 if [ "${CONFIGURATION}" = "Debug Localhost" ]; then
