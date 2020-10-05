@@ -18,6 +18,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     @IBOutlet private var driveInfoContainerView: UIView!
 
     private var drivingSession: DrivingSession?
+    private var isFirstLocationOfDrive = true
     private var mapVC: MapVC!
     private var driveVC: DriveVC!
     private var locationProvider = LocationProvider(locationSource: .debug(DebugCoordinatesManager()))
@@ -68,7 +69,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     func didUpdate(_ driveState: DriveState) {
         switch driveState {
         case .readyToStart:
-            break
+            isFirstLocationOfDrive = true
 
         case .inProgress:
             locationProvider.startReceivingLocationUpdates()
@@ -85,7 +86,8 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
             return
         }
 
-        mapVC.showDriveTrail(with: drivingSession)
+        mapVC.showDriveTrail(with: drivingSession,
+                             shouldTransitionToRegion: isFirstLocationOfDrive)
     }
 
     private func saveDrive() {
@@ -110,5 +112,6 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
         let coordinates = locations.map { $0.coordinate }
         drivingSession?.locations.append(contentsOf: coordinates)
         showDriveTrail()
+        isFirstLocationOfDrive = false
     }
 }

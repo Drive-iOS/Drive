@@ -80,8 +80,8 @@ class DebugCoordinatesManager {
 
             let currentIndex = self.currentSplitCoordinatesIndex
             let locations = self.splitCoordinates?[currentIndex] ?? []
-            self.delegate?.debugCoordinatesManager(self, didUpdateLocations: locations)
 
+            self.delegate?.debugCoordinatesManager(self, didUpdateLocations: locations)
             if self.currentSplitCoordinatesIndex == (self.locationUpdateSecondsLimit - 1) {
                 self.reset()
             } else {

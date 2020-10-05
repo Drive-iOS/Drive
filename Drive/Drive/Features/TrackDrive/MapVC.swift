@@ -35,17 +35,22 @@ class MapVC: UIViewController, StoryboardInstantiable, MKMapViewDelegate {
 
     // MARK: - Updating
 
-    func update(with currentLocation: CLLocation) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
-    }
-
-    func showDriveTrail(with drivingSession: DrivingSession) {
+    func showDriveTrail(with drivingSession: DrivingSession, shouldTransitionToRegion: Bool) {
         let driveTrailOverlay = DriveTrailOverlay(coordinates: drivingSession.locations,
                                         count: drivingSession.locations.count)
         removeDriveTrailOverlays()
         mapView.addOverlay(driveTrailOverlay)
+
+        if shouldTransitionToRegion,
+           let firstLocationOfDrive = drivingSession.locations.first {
+            updateRegion(with: firstLocationOfDrive)
+        }
+    }
+
+    private func updateRegion(with currentLocation: CLLocationCoordinate2D) {
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion(center: currentLocation, span: span)
+        mapView.setRegion(region, animated: true)
     }
 
     private func removeDriveTrailOverlays() {
