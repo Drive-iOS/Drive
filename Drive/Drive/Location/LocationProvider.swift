@@ -18,6 +18,10 @@ enum LocationSource {
 }
 
 class LocationProvider: NSObject, CLLocationManagerDelegate, DebugCoordinatesManagerDelegate {
+    private enum Constants {
+        static let distanceInMetersBetweenLocationUpdates: Double = 20
+    }
+
     let locationSource: LocationSource
     weak var delegate: LocationProviderDelegate?
 
@@ -27,6 +31,7 @@ class LocationProvider: NSObject, CLLocationManagerDelegate, DebugCoordinatesMan
 
         switch locationSource {
         case .device(let locationManager):
+            locationManager.distanceFilter = Constants.distanceInMetersBetweenLocationUpdates
             locationManager.delegate = self
 
         case .debug(let debugCoordinatesManager):
