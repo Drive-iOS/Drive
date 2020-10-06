@@ -29,6 +29,18 @@ class DriveService: DriveServiceType {
     var user: User?
     let urlSession = URLSession(configuration: .default)
 
+    static var jsonDecoder: JSONDecoder {
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = .iso8601
+        return jsonDecoder
+    }
+
+    static var jsonEncoder: JSONEncoder {
+        let jsonDecoder = JSONEncoder()
+        jsonDecoder.dateEncodingStrategy = .iso8601
+        return jsonDecoder
+    }
+
     // MARK: - Type Aliases
 
     typealias RegisterCompletion = (Result<User, DriveServiceError>) -> Void

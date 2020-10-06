@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 
 struct DrivingSession {
+    var startDate: Date
+    var endDate = Date.distantPast
     var locations: [CLLocationCoordinate2D] = []
 }
 
@@ -29,7 +31,6 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
         super.viewDidLoad()
         setUpMapVC()
         setUpDriveVC()
-        setUpDrivingSession()
         setUpLocationProvider()
     }
 
@@ -56,10 +57,6 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
         driveVC.delegate = self
     }
 
-    private func setUpDrivingSession() {
-        drivingSession = DrivingSession()
-    }
-
     private func setUpLocationProvider() {
         locationProvider.delegate = self
     }
@@ -72,12 +69,14 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
             isFirstLocationOfDrive = true
 
         case .inProgress:
+            drivingSession = DrivingSession(startDate: Date())
             locationProvider.startReceivingLocationUpdates()
 
         case .completed:
+            drivingSession?.endDate = Date()
             saveDrive()
             showDriveTrail()
-            drivingSession = DrivingSession()
+            drivingSession = nil
         }
     }
 

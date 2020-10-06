@@ -65,11 +65,11 @@ enum Endpoint {
         switch self {
         case .register:
             let registerRequest = RegisterRequest()
-            return try? JSONEncoder().encode(registerRequest)
+            return try? DriveService.jsonEncoder.encode(registerRequest)
 
         case .drive(let user, let session):
             let saveDriveRequest = SaveDriveRequest(user: user, session: session)
-            return try? JSONEncoder().encode(saveDriveRequest)
+            return try? DriveService.jsonEncoder.encode(saveDriveRequest)
         }
     }
 

@@ -14,5 +14,7 @@ struct SingleDriveCoordinate: Decodable {
 }
 
 struct SingleDriveResponse: Decodable {
+    let startDate: Date
+    let endDate: Date
     let coordinates: [SingleDriveCoordinate]
 }
