@@ -3,7 +3,9 @@
 ## Local Environment Set Up
 The `Drive Debug Localhost` scheme allows for developing locally without hitting the heroku database.
 
-### Set Up
+
+
+### Instructions
 1. Download [backend repo](https://github.com/Drive-iOS/Drive-API)
 2. Install postgres `brew install postgresql`
 3. Start postgres service `brew services start postgresql`
