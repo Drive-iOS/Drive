@@ -19,7 +19,7 @@ enum LocationSource {
 
 class LocationProvider: NSObject, CLLocationManagerDelegate, DebugCoordinatesManagerDelegate {
     private enum Constants {
-        static let distanceInMetersBetweenLocationUpdates: Double = 20
+        static let distanceInMetersBetweenLocationUpdates: Double = 100
     }
 
     let locationSource: LocationSource
