@@ -10,11 +10,15 @@ import UIKit
 
 enum Storyboard {
     case main
+    case trackDrive
 
     var filename: String {
         switch self {
         case .main:
             return "Main"
+
+        case .trackDrive:
+            return "TrackDrive"
         }
     }
 }

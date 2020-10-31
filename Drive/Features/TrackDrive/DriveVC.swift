@@ -20,29 +20,39 @@ protocol DriveDelegate: AnyObject {
 }
 
 class DriveVC: UIViewController, StoryboardInstantiable {
+    // MARK: - IBOutlets
+
     @IBOutlet private var driveButton: DriveButton!
+
+    // MARK: - Properties
 
     weak var delegate: DriveDelegate?
 
-    private var driveState: DriveState = .readyToStart
+    private var currentDriveState: DriveState = .readyToStart
 
     static var appStoryboard: Storyboard {
-        return .main
+        return .trackDrive
     }
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupStartDriveButton()
+        setUpStartDriveButton()
     }
 
-    private func setupStartDriveButton() {
-        updateButton(withDriveState: driveState)
+    // MARK: - Set Up
+
+    private func setUpStartDriveButton() {
+        updateButton(withDriveState: currentDriveState)
     }
+
+    // MARK: - Updating UI
 
     @IBAction func tappedDriveButton(_ sender: UIButton) {
         let updatedDriveState: DriveState
 
-        switch driveState {
+        switch currentDriveState {
         case .readyToStart:
             updatedDriveState = .inProgress
 
@@ -57,7 +67,7 @@ class DriveVC: UIViewController, StoryboardInstantiable {
     }
 
     private func updateButton(withDriveState driveState: DriveState) {
-        self.driveState = driveState
+        self.currentDriveState = driveState
         driveButton.update(withViewModel: DriveButtonViewModel(driveState: driveState))
         delegate?.didUpdate(driveState)
     }

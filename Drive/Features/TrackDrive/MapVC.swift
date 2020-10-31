@@ -17,7 +17,7 @@ class MapVC: UIViewController, StoryboardInstantiable, MKMapViewDelegate {
     // MARK: - Properties
 
     static var appStoryboard: Storyboard {
-        return .main
+        return .trackDrive
     }
 
     // MARK: - Lifecycle

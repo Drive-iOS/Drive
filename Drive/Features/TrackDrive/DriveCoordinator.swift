@@ -16,18 +16,23 @@ struct DrivingSession {
 }
 
 class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegate, StoryboardInstantiable {
-    static var appStoryboard: Storyboard {
-        return .main
-    }
+    // MARK: - IBOutlets
 
     @IBOutlet private var mapContainerView: UIView!
     @IBOutlet private var driveInfoContainerView: UIView!
+    @IBOutlet private var driveInfoContainerViewHeightConstraint: NSLayoutConstraint!
+
+    // MARK: - Properties
 
     private var drivingSession: DrivingSession?
     private var isFirstLocationOfDrive = true
     private var mapVC: MapVC!
     private var driveVC: DriveVC!
     private var locationProvider = LocationProvider(locationSource: .debug(DebugCoordinatesManager()))
+
+    static var appStoryboard: Storyboard {
+        return .trackDrive
+    }
 
     // MARK: - Life cycle
 
@@ -107,6 +112,10 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
                 print("failed")
             }
         }
+    }
+
+    func updateDriveInfoContainerViewHeight(with height: CGFloat) {
+        driveInfoContainerViewHeightConstraint.constant = height
     }
 
     // MARK: - LocationProviderDelegate
