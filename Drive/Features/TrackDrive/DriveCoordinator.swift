@@ -15,7 +15,11 @@ struct DrivingSession {
     var locations: [CLLocationCoordinate2D] = []
 }
 
-class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegate {
+class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegate, StoryboardInstantiable {
+    static var appStoryboard: Storyboard {
+        return .main
+    }
+
     @IBOutlet private var mapContainerView: UIView!
     @IBOutlet private var driveInfoContainerView: UIView!
 

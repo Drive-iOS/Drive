@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Md7-NK-PxR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BGh-3m-4SQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Drive Coordinator-->
         <scene sceneID="dxo-GX-F8J">
             <objects>
-                <viewController id="Md7-NK-PxR" customClass="DriveCoordinator" customModule="Drive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriveCoordinator" id="Md7-NK-PxR" customClass="DriveCoordinator" customModule="Drive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gkM-AK-aSp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +27,8 @@
                                 </constraints>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LUU-sy-A7w"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Rnc-R0-9GH" secondAttribute="bottom" id="512-Fm-gZy"/>
                             <constraint firstItem="Rnc-R0-9GH" firstAttribute="top" secondItem="gkM-AK-aSp" secondAttribute="top" id="G3I-xc-PBt"/>
@@ -35,7 +38,6 @@
                             <constraint firstItem="Q78-Cq-7QY" firstAttribute="leading" secondItem="LUU-sy-A7w" secondAttribute="leading" id="ldE-Jk-ATs"/>
                             <constraint firstItem="Q78-Cq-7QY" firstAttribute="bottom" secondItem="gkM-AK-aSp" secondAttribute="bottom" id="tv1-Iu-C9g"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="LUU-sy-A7w"/>
                     </view>
                     <connections>
                         <outlet property="driveInfoContainerView" destination="Q78-Cq-7QY" id="aw5-O4-GnW"/>
@@ -58,14 +60,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QxQ-Lm-qpQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="I0C-Bp-grR" secondAttribute="bottom" id="MCx-BY-O6Q"/>
                             <constraint firstItem="I0C-Bp-grR" firstAttribute="leading" secondItem="QxQ-Lm-qpQ" secondAttribute="leading" id="Pa2-eu-vqY"/>
                             <constraint firstAttribute="trailing" secondItem="I0C-Bp-grR" secondAttribute="trailing" id="VPY-O5-b30"/>
                             <constraint firstItem="I0C-Bp-grR" firstAttribute="top" secondItem="I8H-T9-Mbr" secondAttribute="top" id="eWP-je-TlQ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="QxQ-Lm-qpQ"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="I0C-Bp-grR" id="BNA-zf-AbM"/>
@@ -78,7 +80,6 @@
         <!--DriveVC-->
         <scene sceneID="F4g-Qd-mD2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bxG-SL-kgB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DriveVC" id="bDQ-9U-WE6" customClass="DriveVC" customModule="Drive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JMR-nV-h8h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -87,9 +88,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="mdu-31-SxI">
                                 <rect key="frame" x="10" y="10" width="394" height="852"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQL-Dc-A7W" customClass="DriveButton" customModule="Drive" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQL-Dc-A7W" customClass="DriveButton" customModule="Drive" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="852"/>
-                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <state key="normal" title="Start Drive">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,21 +102,80 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="puh-bq-ij5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mdu-31-SxI" firstAttribute="top" secondItem="JMR-nV-h8h" secondAttribute="top" constant="10" id="D5V-Ok-gJz"/>
                             <constraint firstItem="puh-bq-ij5" firstAttribute="bottom" secondItem="mdu-31-SxI" secondAttribute="bottom" id="Hes-Ww-LWc"/>
                             <constraint firstItem="puh-bq-ij5" firstAttribute="trailing" secondItem="mdu-31-SxI" secondAttribute="trailing" constant="10" id="eix-6x-Sc5"/>
                             <constraint firstItem="mdu-31-SxI" firstAttribute="leading" secondItem="puh-bq-ij5" secondAttribute="leading" constant="10" id="vGy-5a-BX4"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="puh-bq-ij5"/>
                     </view>
                     <connections>
                         <outlet property="driveButton" destination="XQL-Dc-A7W" id="mRo-Ro-g2A"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxG-SL-kgB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="351"/>
+            <point key="canvasLocation" x="771" y="351"/>
+        </scene>
+        <!--App Start View Controller-->
+        <scene sceneID="SxC-ok-9Ki">
+            <objects>
+                <viewController id="BGh-3m-4SQ" customClass="AppStartViewController" customModule="Drive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z6C-Gi-9be">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsL-Da-MC0" customClass="VideoView" customModule="Drive" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuE-CB-hAh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLa-T6-Eiz">
+                                        <rect key="frame" x="65" y="150" width="284.5" height="143.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="120"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.3026273544520548" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="DLa-T6-Eiz" firstAttribute="top" secondItem="OuE-CB-hAh" secondAttribute="top" constant="150" id="Glx-Wd-zsk"/>
+                                    <constraint firstItem="DLa-T6-Eiz" firstAttribute="centerX" secondItem="OuE-CB-hAh" secondAttribute="centerX" id="awU-av-N0D"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2F2-nj-Osk"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="tsL-Da-MC0" secondAttribute="bottom" id="5eQ-GO-Knh"/>
+                            <constraint firstItem="OuE-CB-hAh" firstAttribute="trailing" secondItem="2F2-nj-Osk" secondAttribute="trailing" id="8br-8A-S93"/>
+                            <constraint firstItem="tsL-Da-MC0" firstAttribute="trailing" secondItem="2F2-nj-Osk" secondAttribute="trailing" id="Bfu-je-qy7"/>
+                            <constraint firstItem="OuE-CB-hAh" firstAttribute="leading" secondItem="2F2-nj-Osk" secondAttribute="leading" id="PhZ-h0-Sdo"/>
+                            <constraint firstItem="OuE-CB-hAh" firstAttribute="top" secondItem="Z6C-Gi-9be" secondAttribute="top" id="SCa-PA-awL"/>
+                            <constraint firstItem="tsL-Da-MC0" firstAttribute="top" secondItem="Z6C-Gi-9be" secondAttribute="top" id="Z6R-J4-PcW"/>
+                            <constraint firstItem="tsL-Da-MC0" firstAttribute="leading" secondItem="2F2-nj-Osk" secondAttribute="leading" id="mxa-Mv-exj"/>
+                            <constraint firstAttribute="bottom" secondItem="OuE-CB-hAh" secondAttribute="bottom" id="v5n-fB-Obd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="videoView" destination="tsL-Da-MC0" id="Fkm-sJ-aaZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cwR-Vi-u42" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1462.3188405797102" y="350.89285714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

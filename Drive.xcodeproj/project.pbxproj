@@ -34,6 +34,9 @@
 		CAB592DE24CA89E4001A005A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAB592DC24CA89E4001A005A /* LaunchScreen.storyboard */; };
 		CAB592E924CA89E4001A005A /* DriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592E824CA89E4001A005A /* DriveTests.swift */; };
 		CAB592F424CA89E4001A005A /* DriveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592F324CA89E4001A005A /* DriveUITests.swift */; };
+		CABF674C254D09B700E97751 /* AppStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF674B254D09B700E97751 /* AppStartViewController.swift */; };
+		CABF6768254D1D5600E97751 /* miata-start-video.mov in Resources */ = {isa = PBXBuildFile; fileRef = CABF6767254D1D5600E97751 /* miata-start-video.mov */; };
+		CABF6770254D1EA600E97751 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF676F254D1EA600E97751 /* VideoView.swift */; };
 		CABFC3C824D79F330036A387 /* DriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3C724D79F330036A387 /* DriveService.swift */; };
 		CABFC3CA24D79F830036A387 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3C924D79F830036A387 /* LocationProvider.swift */; };
 		CABFC3CC24D79FDA0036A387 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CB24D79FDA0036A387 /* Endpoint.swift */; };
@@ -110,6 +113,9 @@
 		CAB592EF24CA89E4001A005A /* DriveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DriveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB592F324CA89E4001A005A /* DriveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveUITests.swift; sourceTree = "<group>"; };
 		CAB592F524CA89E4001A005A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CABF674B254D09B700E97751 /* AppStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStartViewController.swift; sourceTree = "<group>"; };
+		CABF6767254D1D5600E97751 /* miata-start-video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "miata-start-video.mov"; sourceTree = "<group>"; };
+		CABF676F254D1EA600E97751 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		CABFC3C724D79F330036A387 /* DriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveService.swift; sourceTree = "<group>"; };
 		CABFC3C924D79F830036A387 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		CABFC3CB24D79FDA0036A387 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -275,6 +281,16 @@
 			path = DriveUITests;
 			sourceTree = "<group>";
 		};
+		CABF6750254D09C800E97751 /* AppStart */ = {
+			isa = PBXGroup;
+			children = (
+				CABF674B254D09B700E97751 /* AppStartViewController.swift */,
+				CABF676F254D1EA600E97751 /* VideoView.swift */,
+				CABF6767254D1D5600E97751 /* miata-start-video.mov */,
+			);
+			path = AppStart;
+			sourceTree = "<group>";
+		};
 		CABFC3D324D7A1380036A387 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +368,7 @@
 		CABFC3E024D7A4C90036A387 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				CABF6750254D09C800E97751 /* AppStart */,
 				CABFC3D824D7A2630036A387 /* TrackDrive */,
 			);
 			path = Features;
@@ -467,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAB592DE24CA89E4001A005A /* LaunchScreen.storyboard in Resources */,
+				CABF6768254D1D5600E97751 /* miata-start-video.mov in Resources */,
 				CA1889A325298DE100BEB498 /* CvilleDebugCoordinates.json in Resources */,
 				CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */,
 				CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */,
@@ -609,6 +627,7 @@
 				CABFC3D024D7A0480036A387 /* RegisterResponse.swift in Sources */,
 				CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */,
 				CA7879BB24ECBA390013E2DF /* DriveTrailOverlay.swift in Sources */,
+				CABF6770254D1EA600E97751 /* VideoView.swift in Sources */,
 				CABFC3CC24D79FDA0036A387 /* Endpoint.swift in Sources */,
 				CA5E937B24CBEAE000C36AC3 /* DriveVC.swift in Sources */,
 				CADEB27024CD147E0048056D /* DriveButtonViewModel.swift in Sources */,
@@ -626,6 +645,7 @@
 				CA9585872528439600F8DD2D /* AllDrivesResponse.swift in Sources */,
 				CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */,
 				CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */,
+				CABF674C254D09B700E97751 /* AppStartViewController.swift in Sources */,
 				CA1889BC252A72DA00BEB498 /* ArrayExtension.swift in Sources */,
 				CA9585922528442800F8DD2D /* SingleDriveRequest.swift in Sources */,
 				CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */,
