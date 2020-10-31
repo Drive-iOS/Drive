@@ -25,4 +25,11 @@ struct SaveDriveRequest: Codable {
         endDate = session.endDate
         coordinates = session.locations.map { SaveDriveCoordinate(longitude: $0.longitude, latitude: $0.latitude) }
     }
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "userId"
+        case startDate = "start_time"
+        case endDate = "end_time"
+        case coordinates
+    }
 }

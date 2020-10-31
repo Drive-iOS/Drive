@@ -9,7 +9,7 @@
 import Foundation
 
 enum Endpoint {
-    case register
+    case registerUser
     case drive(user: User, session: DrivingSession)
 
     var apiVersion: Int {
@@ -44,8 +44,8 @@ enum Endpoint {
         let commonPath = "/v\(apiVersion)"
 
         switch self {
-        case .register:
-            return commonPath + "/register"
+        case .registerUser:
+            return commonPath + "/user"
 
         case .drive:
             return commonPath + "/drive"
@@ -55,7 +55,7 @@ enum Endpoint {
 
     var httpMethod: String {
         switch self {
-        case .register,
+        case .registerUser,
              .drive:
             return "PUT"
         }
@@ -63,7 +63,7 @@ enum Endpoint {
 
     var body: Data? {
         switch self {
-        case .register:
+        case .registerUser:
             let registerRequest = RegisterRequest()
             return try? DriveService.jsonEncoder.encode(registerRequest)
 
@@ -75,7 +75,7 @@ enum Endpoint {
 
     var headerFieldProperties: [String: String] {
         switch self {
-        case .register,
+        case .registerUser,
             .drive:
             return ["Content-Type": "Application/json"]
         }

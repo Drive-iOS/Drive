@@ -49,7 +49,7 @@ class DriveService: DriveServiceType {
     // MARK: - Register
 
     func register(completion: @escaping RegisterCompletion) {
-        let endpoint = Endpoint.register
+        let endpoint = Endpoint.registerUser
 
         guard let request = RequestFactory.urlRequest(for: endpoint) else {
             completion(.failure(.invalidRequest))

@@ -10,4 +10,8 @@ import Foundation
 
 struct RegisterResponse: Decodable {
     let userID: String
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+    }
 }
