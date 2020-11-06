@@ -20,30 +20,93 @@ protocol DriveDelegate: AnyObject {
 }
 
 class DriveVC: UIViewController, StoryboardInstantiable {
+    enum Section {
+        case drives
+    }
+
+    enum ItemType {
+        case drive
+    }
+
+    struct Item: Hashable {
+        let name: String
+    }
+
     // MARK: - IBOutlets
 
     @IBOutlet private var driveButton: DriveButton!
+    @IBOutlet private var collectionView: UICollectionView!
 
     // MARK: - Properties
-
-    weak var delegate: DriveDelegate?
-
-    private var currentDriveState: DriveState = .readyToStart
 
     static var appStoryboard: Storyboard {
         return .trackDrive
     }
 
+    var dataSource: UICollectionViewDiffableDataSource<Section, Item>?
+
+    weak var delegate: DriveDelegate?
+
+    private var currentDriveState: DriveState = .readyToStart
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpStartDriveButton()
+        setUpCollectionView()
+        setUpDataSource()
+        setUpSnapshot()
+        setUpLayout()
+        setUpDriveButton()
     }
 
     // MARK: - Set Up
 
-    private func setUpStartDriveButton() {
+    private func setUpCollectionView() {
+        let nib = UINib(nibName: "DriveCell", bundle: .main)
+        collectionView.register(nib, forCellWithReuseIdentifier: DriveCell.reuseIdentifier)
+    }
+
+    private func setUpDataSource() {
+        // swiftlint:disable line_length
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) { collectionView, indexPath, item in
+            guard let driveCell = collectionView.dequeueReusableCell(withReuseIdentifier: DriveCell.reuseIdentifier,
+                                                                     for: indexPath) as? DriveCell else {
+                fatalError("Programmer Error: Expected reuse cell to exist")
+            }
+
+            driveCell.nameLabel.text = item.name
+            driveCell.backgroundColor = .systemPink
+
+            return driveCell
+        }
+        // swiftlint:enable line_length
+    }
+
+    private func setUpSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.drives])
+        snapshot.appendItems([.init(name: "Drive1"), .init(name: "Drive2")])
+
+        dataSource?.apply(snapshot)
+    }
+
+    private func setUpLayout() {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                              heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.interItemSpacing = NSCollectionLayoutSpacing.fixed(2)
+        let section = NSCollectionLayoutSection(group: group)
+
+        section.interGroupSpacing = 5
+        section.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 10, bottom: 2, trailing: 10)
+
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: section)
+    }
+
+    private func setUpDriveButton() {
         updateButton(withDriveState: currentDriveState)
     }
 

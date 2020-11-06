@@ -20,28 +20,17 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zr-hT-ukt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SaE-jQ-UfD">
-                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="29A-db-KWA"/>
-                                </constraints>
-                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f4f-aV-ewn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="4Zr-hT-ukt" secondAttribute="bottom" id="M8m-qK-iDC"/>
-                            <constraint firstItem="SaE-jQ-UfD" firstAttribute="bottom" secondItem="jZy-WT-4PI" secondAttribute="bottom" id="MuU-4O-iBu"/>
                             <constraint firstItem="4Zr-hT-ukt" firstAttribute="trailing" secondItem="f4f-aV-ewn" secondAttribute="trailing" id="QCm-5g-rwW"/>
                             <constraint firstItem="4Zr-hT-ukt" firstAttribute="top" secondItem="jZy-WT-4PI" secondAttribute="top" id="S0N-LZ-eJg"/>
                             <constraint firstItem="4Zr-hT-ukt" firstAttribute="leading" secondItem="f4f-aV-ewn" secondAttribute="leading" id="d6e-eF-er5"/>
-                            <constraint firstItem="SaE-jQ-UfD" firstAttribute="trailing" secondItem="f4f-aV-ewn" secondAttribute="trailing" id="jCQ-JE-4zU"/>
-                            <constraint firstItem="SaE-jQ-UfD" firstAttribute="leading" secondItem="f4f-aV-ewn" secondAttribute="leading" id="p9T-QZ-GRz"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="driveInfoContainerView" destination="SaE-jQ-UfD" id="wMT-bq-3p5"/>
-                        <outlet property="driveInfoContainerViewHeightConstraint" destination="29A-db-KWA" id="YBc-jA-mKm"/>
                         <outlet property="mapContainerView" destination="4Zr-hT-ukt" id="hzy-yd-DAv"/>
                     </connections>
                 </viewController>
@@ -79,54 +68,79 @@
             <point key="canvasLocation" x="14" y="351"/>
         </scene>
         <!--DriveVC-->
-        <scene sceneID="wUX-wG-vrl">
+        <scene sceneID="eln-L3-jyk">
             <objects>
-                <viewController storyboardIdentifier="DriveVC" id="GU7-e4-cNX" customClass="DriveVC" customModule="Drive" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k4B-m8-XG7">
+                <viewController storyboardIdentifier="DriveVC" id="Xs8-u8-0iy" customClass="DriveVC" customModule="Drive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cbW-Es-yGp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YeL-v1-Gmz">
-                                <rect key="frame" x="10" y="10" width="394" height="842"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbJ-O3-Ebo" customClass="DriveButton" customModule="Drive" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="842"/>
-                                        <color key="backgroundColor" systemColor="linkColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <state key="normal" title="Start Drive">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedDriveButton:" destination="GU7-e4-cNX" eventType="touchUpInside" id="9eG-yY-jxU"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyw-Ob-gC1" customClass="DriveButton" customModule="Drive" customModuleProvider="target">
+                                <rect key="frame" x="10" y="41" width="394" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="jXs-SJ-5Fu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Start Drive">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedDriveButton:" destination="Xs8-u8-0iy" eventType="touchUpInside" id="h8Z-pp-ZFn"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n9Y-Ev-7O7">
+                                <rect key="frame" x="10" y="151" width="394" height="711"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GIf-70-ala">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAM-zG-114">
+                                <rect key="frame" x="10" y="10" width="394" height="15"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="znC-9t-nhd"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="F1D-2F-hFD"/>
+                        <viewLayoutGuide key="safeArea" id="BS6-vO-Ji5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YeL-v1-Gmz" firstAttribute="top" secondItem="k4B-m8-XG7" secondAttribute="top" constant="10" id="497-an-OQp"/>
-                            <constraint firstItem="F1D-2F-hFD" firstAttribute="bottom" secondItem="YeL-v1-Gmz" secondAttribute="bottom" constant="10" id="8HG-1o-lqc"/>
-                            <constraint firstItem="YeL-v1-Gmz" firstAttribute="leading" secondItem="F1D-2F-hFD" secondAttribute="leading" constant="10" id="8Tn-sT-wdA"/>
-                            <constraint firstItem="F1D-2F-hFD" firstAttribute="trailing" secondItem="YeL-v1-Gmz" secondAttribute="trailing" constant="10" id="crx-02-zov"/>
+                            <constraint firstItem="XAM-zG-114" firstAttribute="top" secondItem="cbW-Es-yGp" secondAttribute="top" constant="10" id="Eyz-rX-5zX"/>
+                            <constraint firstItem="n9Y-Ev-7O7" firstAttribute="leading" secondItem="BS6-vO-Ji5" secondAttribute="leading" constant="10" id="GYO-zf-xe5"/>
+                            <constraint firstItem="XAM-zG-114" firstAttribute="leading" secondItem="BS6-vO-Ji5" secondAttribute="leading" constant="10" id="Q8D-w7-9xg"/>
+                            <constraint firstItem="BS6-vO-Ji5" firstAttribute="trailing" secondItem="XAM-zG-114" secondAttribute="trailing" constant="10" id="Rqy-SV-nDc"/>
+                            <constraint firstItem="n9Y-Ev-7O7" firstAttribute="top" secondItem="Uyw-Ob-gC1" secondAttribute="bottom" constant="10" id="Xfa-Eb-87d"/>
+                            <constraint firstItem="Uyw-Ob-gC1" firstAttribute="top" secondItem="XAM-zG-114" secondAttribute="bottom" constant="16" id="Y4L-9Z-Wp4"/>
+                            <constraint firstItem="n9Y-Ev-7O7" firstAttribute="bottom" secondItem="BS6-vO-Ji5" secondAttribute="bottom" id="fZf-jz-kRE"/>
+                            <constraint firstItem="Uyw-Ob-gC1" firstAttribute="leading" secondItem="BS6-vO-Ji5" secondAttribute="leading" constant="10" id="fbN-Fe-zDW"/>
+                            <constraint firstItem="BS6-vO-Ji5" firstAttribute="trailing" secondItem="Uyw-Ob-gC1" secondAttribute="trailing" constant="10" id="s2Z-eM-Xfw"/>
+                            <constraint firstItem="BS6-vO-Ji5" firstAttribute="trailing" secondItem="n9Y-Ev-7O7" secondAttribute="trailing" constant="10" id="vTz-Zb-Rp1"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="driveButton" destination="FbJ-O3-Ebo" id="2C8-uN-d51"/>
+                        <outlet property="collectionView" destination="n9Y-Ev-7O7" id="Eqg-bc-OSd"/>
+                        <outlet property="driveButton" destination="Uyw-Ob-gC1" id="Ip0-dz-qRO"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R6E-VQ-jjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tAM-Fd-qaz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771" y="351"/>
+            <point key="canvasLocation" x="750.72463768115949" y="350.89285714285711"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

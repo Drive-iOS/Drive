@@ -46,6 +46,8 @@
 		CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */; };
 		CABFC3DA24D7A2A40036A387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D924D7A2A40036A387 /* User.swift */; };
 		CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */; };
+		CADE676A2552522D00C8AC8C /* DriveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADE67692552522D00C8AC8C /* DriveCell.swift */; };
+		CADE676F2552527500C8AC8C /* DriveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADE676E2552527500C8AC8C /* DriveCell.xib */; };
 		CADEB26E24CD145D0048056D /* DriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26D24CD145D0048056D /* DriveButton.swift */; };
 		CADEB27024CD147E0048056D /* DriveButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */; };
 		E7C2CF22EEFB22B73C5D77F7 /* libPods-Drive-DriveUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9755465221F031F47334A80 /* libPods-Drive-DriveUITests.a */; };
@@ -126,6 +128,8 @@
 		CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveServiceType.swift; sourceTree = "<group>"; };
 		CABFC3D924D7A2A40036A387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		CADE67692552522D00C8AC8C /* DriveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveCell.swift; sourceTree = "<group>"; };
+		CADE676E2552527500C8AC8C /* DriveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveCell.xib; sourceTree = "<group>"; };
 		CADEB26D24CD145D0048056D /* DriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButton.swift; sourceTree = "<group>"; };
 		CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButtonViewModel.swift; sourceTree = "<group>"; };
 		E49BCD3B90056A5E64775CC3 /* libPods-Drive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Drive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,7 +347,9 @@
 			children = (
 				CADEB26D24CD145D0048056D /* DriveButton.swift */,
 				CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */,
+				CADE67692552522D00C8AC8C /* DriveCell.swift */,
 				CABF677A254DAF9E00E97751 /* TrackDrive.storyboard */,
+				CADE676E2552527500C8AC8C /* DriveCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CADE676F2552527500C8AC8C /* DriveCell.xib in Resources */,
 				CAB592DE24CA89E4001A005A /* LaunchScreen.storyboard in Resources */,
 				CABF6768254D1D5600E97751 /* miata-start-video.mov in Resources */,
 				CA1889A325298DE100BEB498 /* CvilleDebugCoordinates.json in Resources */,
@@ -627,6 +634,7 @@
 				CAB592D924CA89E3001A005A /* Drive.xcdatamodeld in Sources */,
 				CA916D0724D8EB6F00601E0C /* SaveDriveResponse.swift in Sources */,
 				CAB592D324CA89E3001A005A /* DriveCoordinator.swift in Sources */,
+				CADE676A2552522D00C8AC8C /* DriveCell.swift in Sources */,
 				CA9585822528435F00F8DD2D /* AllDrivesRequest.swift in Sources */,
 				CABFC3D024D7A0480036A387 /* RegisterResponse.swift in Sources */,
 				CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */,

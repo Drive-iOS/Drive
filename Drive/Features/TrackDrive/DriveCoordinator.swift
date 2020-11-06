@@ -58,10 +58,13 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     private func setUpDriveVC() {
         let driveVC = DriveVC.fromStoryboard()
 
-        driveInfoContainerView.addSubview(driveVC.view)
+        view.addSubview(driveVC.view)
         addChild(driveVC)
         driveVC.view.translatesAutoresizingMaskIntoConstraints = false
-        driveVC.view.constrainToEdgesOfSuperView()
+        driveVC.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        driveVC.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        driveVC.view.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        driveVC.view.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.66).isActive = true
         self.driveVC = driveVC
         driveVC.delegate = self
     }
