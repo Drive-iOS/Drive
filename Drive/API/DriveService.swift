@@ -45,7 +45,7 @@ class DriveService: DriveServiceType {
 
     typealias RegisterCompletion = (Result<User, DriveServiceError>) -> Void
     typealias SaveDriveCompletion = (SaveDriveResult) -> Void
-    typealias getDrivesCompletion = (GetDrivesResponse?) -> Void
+    typealias GetDrivesCompletion = (GetDrivesResponse?) -> Void
 
     // MARK: - Register
 
@@ -73,13 +73,8 @@ class DriveService: DriveServiceType {
         dataTask.resume()
     }
     
-    func getDrives(completion: @escaping getDrivesCompletion) {
-        guard let user = user else {
-            completion(nil)
-            return
-        }
-
-        let endpoint = Endpoint.getDrives(user: user)
+    func getDrives(completion: @escaping GetDrivesCompletion) {
+        let endpoint = Endpoint.getDrives
 
         guard let request = RequestFactory.urlRequest(for: endpoint) else {
             completion(nil)

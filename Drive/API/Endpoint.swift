@@ -11,7 +11,7 @@ import Foundation
 enum Endpoint {
     case putUser
     case putDrive(user: User, session: DrivingSession)
-    case getDrives(user: User)
+    case getDrives
 
     var apiVersion: Int {
         return 1
