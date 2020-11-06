@@ -12,7 +12,7 @@ struct User {
     // swiftlint:disable identifier_name
     var id: String
 
-    init(registerResponse: RegisterResponse) {
+    init(registerResponse: PutUserResponse) {
         id = registerResponse.userID
     }
 

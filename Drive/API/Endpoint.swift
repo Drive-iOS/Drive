@@ -9,8 +9,9 @@
 import Foundation
 
 enum Endpoint {
-    case registerUser
-    case drive(user: User, session: DrivingSession)
+    case putUser
+    case putDrive(user: User, session: DrivingSession)
+    case getDrives(user: User)
 
     var apiVersion: Int {
         return 1
@@ -44,39 +45,45 @@ enum Endpoint {
         let commonPath = "/v\(apiVersion)"
 
         switch self {
-        case .registerUser:
+        case .putUser:
             return commonPath + "/user"
-
-        case .drive:
+        case .putDrive:
             return commonPath + "/drive"
-
+        case .getDrives:
+            return commonPath + "/drives"
         }
+        
     }
 
     var httpMethod: String {
         switch self {
-        case .registerUser,
-             .drive:
+        case .putUser,
+             .putDrive:
             return "PUT"
+        case .getDrives:
+            return "GET"
         }
     }
 
     var body: Data? {
         switch self {
-        case .registerUser:
-            let registerRequest = RegisterRequest()
+        case .putUser:
+            let registerRequest = PutUserRequest()
             return try? DriveService.jsonEncoder.encode(registerRequest)
 
-        case .drive(let user, let session):
-            let saveDriveRequest = SaveDriveRequest(user: user, session: session)
+        case .putDrive(let user, let session):
+            let saveDriveRequest = PutDriveRequest(user: user, session: session)
             return try? DriveService.jsonEncoder.encode(saveDriveRequest)
+        case .getDrives:
+            return nil
         }
     }
 
     var headerFieldProperties: [String: String] {
         switch self {
-        case .registerUser,
-            .drive:
+        case .putUser,
+             .putDrive,
+             .getDrives:
             return ["Content-Type": "Application/json"]
         }
     }

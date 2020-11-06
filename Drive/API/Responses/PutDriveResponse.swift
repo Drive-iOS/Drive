@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct SaveDriveResponse: Decodable {
+struct PutDriveResponse: Decodable {
     let success: Bool
 }

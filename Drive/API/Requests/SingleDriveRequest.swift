@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SingleDriveRequest {
+struct PutDriveRequest {
     let userID: String
     let driveID: String
 }
