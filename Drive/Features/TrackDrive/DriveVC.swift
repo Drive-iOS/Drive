@@ -62,7 +62,7 @@ class DriveVC: UIViewController, StoryboardInstantiable {
 
     // MARK: - Set Up
     private func loadDrives() {
-        DriveService.shared.getDrives { (response) in
+        DriveService.getDrives { (response) in
             switch response {
             case .success(let allDrives):
                 var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()

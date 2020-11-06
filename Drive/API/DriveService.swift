@@ -20,10 +20,9 @@ enum DriveServiceError: Error {
     case invalidCurrentUser
 }
 
-class DriveService: DriveServiceType {
+struct DriveService: DriveServiceType {
     // MARK: - Properties
-    static let shared = DriveService()
-    let urlSession = URLSession(configuration: .default)
+    static let urlSession = URLSession(configuration: .default)
     
     // Make sure Drive Service is not instantiable
     private init () {
@@ -50,7 +49,7 @@ class DriveService: DriveServiceType {
 
     // MARK: - Register
 
-    func register(completion: @escaping RegisterCompletion) {
+    static func register(completion: @escaping RegisterCompletion) {
         guard let request = RequestFactory.urlRequest(for: Endpoint.putUser) else {
             completion(.failure(.invalidRequest))
             return
@@ -74,7 +73,7 @@ class DriveService: DriveServiceType {
     
     // MARK: - Get Drives
     
-    func getDrives(completion: @escaping GetDrivesCompletion) {
+    static func getDrives(completion: @escaping GetDrivesCompletion) {
         guard let request = RequestFactory.urlRequest(for: Endpoint.getDrives) else {
             completion(.failure(.invalidRequest))
             return
@@ -97,7 +96,7 @@ class DriveService: DriveServiceType {
     
     // MARK: - Save Drive
 
-    func saveDrive(session: DrivingSession, completion: @escaping SaveDriveCompletion) {
+    static func saveDrive(session: DrivingSession, completion: @escaping SaveDriveCompletion) {
         guard let user = UserProvider.shared.currentUser else {
             completion(.failure(.invalidCurrentUser))
             return
