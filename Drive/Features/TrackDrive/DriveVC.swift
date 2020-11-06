@@ -63,19 +63,20 @@ class DriveVC: UIViewController, StoryboardInstantiable {
     // MARK: - Set Up
     private func loadDrives() {
         let userProvider = UserProvider()
-        userProvider.driveService.getDrives { (allDrivesResponse) in
-            guard let allDrives = allDrivesResponse else {
-                return;
+        userProvider.driveService.getDrives { (response) in
+            switch response {
+            case .success(let allDrives):
+                var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+                snapshot.appendSections([.drives])
+                
+                for drive in allDrives.results {
+                    snapshot.appendItems([.init(name: drive.driveID)])
+                }
+                
+                self.dataSource?.apply(snapshot)
+            case .failure:
+                break
             }
-            
-            var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-            snapshot.appendSections([.drives])
-            
-            for drive in allDrives.results {
-                snapshot.appendItems([.init(name: drive.driveID)])
-            }
-            
-            self.dataSource?.apply(snapshot)
         }
     }
 

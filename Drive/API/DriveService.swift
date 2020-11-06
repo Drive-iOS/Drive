@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SaveDriveResult {
+enum PutRequestResult {
     case success
     case failure(DriveServiceError)
 }
@@ -44,13 +44,37 @@ class DriveService: DriveServiceType {
     // MARK: - Type Aliases
 
     typealias RegisterCompletion = (Result<User, DriveServiceError>) -> Void
-    typealias SaveDriveCompletion = (SaveDriveResult) -> Void
-    typealias GetDrivesCompletion = (GetDrivesResponse?) -> Void
+    typealias SaveDriveCompletion = (PutRequestResult) -> Void
+    typealias GetDrivesCompletion = (Result<GetDrivesResponse, DriveServiceError>) -> Void
 
     // MARK: - Register
 
     func register(completion: @escaping RegisterCompletion) {
-        let endpoint = Endpoint.putUser
+        guard let request = RequestFactory.urlRequest(for: Endpoint.putUser) else {
+            completion(.failure(.invalidRequest))
+            return
+        }
+
+        let dataTask = urlSession.dataTask(with: request) { data, _, _ in
+            guard let data = data else {
+                return completion(.failure(.invalidResponse))
+            }
+
+            guard let putUserResponse = try? JSONDecoder().decode(PutUserResponse.self, from: data) else {
+                return completion(.failure(.invalidResponse))
+            }
+
+            let user = User(putUserResponse: putUserResponse)
+            completion(.success(user))
+        }
+
+        dataTask.resume()
+    }
+    
+    // MARK: - Get Drives
+    
+    func getDrives(completion: @escaping GetDrivesCompletion) {
+        let endpoint = Endpoint.getDrives
 
         guard let request = RequestFactory.urlRequest(for: endpoint) else {
             completion(.failure(.invalidRequest))
@@ -62,35 +86,11 @@ class DriveService: DriveServiceType {
                 return completion(.failure(.invalidResponse))
             }
 
-            guard let registerResponse = try? JSONDecoder().decode(PutUserResponse.self, from: data) else {
+            guard let allDrivesResponse = try? JSONDecoder().decode(GetDrivesResponse.self, from: data) else {
                 return completion(.failure(.invalidResponse))
             }
-
-            let user = User(registerResponse: registerResponse)
-            completion(.success(user))
-        }
-
-        dataTask.resume()
-    }
-    
-    func getDrives(completion: @escaping GetDrivesCompletion) {
-        let endpoint = Endpoint.getDrives
-
-        guard let request = RequestFactory.urlRequest(for: endpoint) else {
-            completion(nil)
-            return
-        }
-
-        let dataTask = urlSession.dataTask(with: request) { data, _, _ in
-            guard let data = data else {
-                return completion(nil)
-            }
-
-            guard let allDrivesResponse = try? JSONDecoder().decode(GetDrivesResponse.self, from: data) else {
-                return completion(nil)
-            }
             
-            completion(allDrivesResponse)
+            completion(.success(allDrivesResponse))
         }
 
         dataTask.resume()
