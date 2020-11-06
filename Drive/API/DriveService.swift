@@ -21,13 +21,14 @@ enum DriveServiceError: Error {
 }
 
 class DriveService: DriveServiceType {
-
     // MARK: - Properties
-
     static let shared = DriveService()
-
-    var user: User?
     let urlSession = URLSession(configuration: .default)
+    
+    // Make sure Drive Service is not instantiable
+    private init () {
+        
+    }
 
     static var jsonDecoder: JSONDecoder {
         let jsonDecoder = JSONDecoder()
@@ -97,7 +98,7 @@ class DriveService: DriveServiceType {
     // MARK: - Save Drive
 
     func saveDrive(session: DrivingSession, completion: @escaping SaveDriveCompletion) {
-        guard let user = user else {
+        guard let user = UserProvider.shared.currentUser else {
             completion(.failure(.invalidCurrentUser))
             return
         }

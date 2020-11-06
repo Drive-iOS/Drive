@@ -11,8 +11,9 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var userProvider = UserProvider()
-
+    let userProvider = UserProvider.shared
+    let driveService = DriveService.shared
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setUpUser()
@@ -20,18 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setUpUser() {
-        if let currentUser = userProvider.currentUser {
-            userProvider.driveService.user = currentUser
-        } else {
+        if userProvider.currentUser == nil {
             createNewUser()
         }
     }
 
     private func createNewUser() {
-        userProvider.createUser { [weak self] result in
+        
+        driveService.register {[weak self] result in
             switch result {
             case .success(let user):
-                self?.userProvider.driveService.user = user
+                self?.userProvider.currentUser = user
                 self?.userProvider.saveUser()
 
             case .failure(let error):
