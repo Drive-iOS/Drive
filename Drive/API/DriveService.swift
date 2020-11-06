@@ -74,9 +74,7 @@ class DriveService: DriveServiceType {
     // MARK: - Get Drives
     
     func getDrives(completion: @escaping GetDrivesCompletion) {
-        let endpoint = Endpoint.getDrives
-
-        guard let request = RequestFactory.urlRequest(for: endpoint) else {
+        guard let request = RequestFactory.urlRequest(for: Endpoint.getDrives) else {
             completion(.failure(.invalidRequest))
             return
         }
@@ -95,6 +93,8 @@ class DriveService: DriveServiceType {
 
         dataTask.resume()
     }
+    
+    // MARK: - Save Drive
 
     func saveDrive(session: DrivingSession, completion: @escaping SaveDriveCompletion) {
         guard let user = user else {
