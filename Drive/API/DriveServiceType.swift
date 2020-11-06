@@ -9,5 +9,7 @@
 import Foundation
 
 protocol DriveServiceType {
-//    func register(completion: @escaping DriveService.RegisterCompletion)
+    static func register(completion: @escaping DriveService.RegisterCompletion)
+    static func getDrives(completion: @escaping DriveService.GetDrivesCompletion)
+    static func saveDrive(session: DrivingSession, completion: @escaping DriveService.SaveDriveCompletion)
 }
