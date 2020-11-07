@@ -25,6 +25,7 @@
 		CA9585872528439600F8DD2D /* AllDrivesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9585862528439600F8DD2D /* AllDrivesResponse.swift */; };
 		CA9585922528442800F8DD2D /* SingleDriveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9585912528442800F8DD2D /* SingleDriveRequest.swift */; };
 		CA95859D252844E000F8DD2D /* SingleDriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA95859C252844E000F8DD2D /* SingleDriveResponse.swift */; };
+		CAB1BA502556507C003E3CDE /* SlidingCardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB1BA4F2556507C003E3CDE /* SlidingCardManager.swift */; };
 		CAB592CF24CA89E3001A005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592CE24CA89E3001A005A /* AppDelegate.swift */; };
 		CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D024CA89E3001A005A /* SceneDelegate.swift */; };
 		CAB592D324CA89E3001A005A /* DriveCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D224CA89E3001A005A /* DriveCoordinator.swift */; };
@@ -101,6 +102,7 @@
 		CA9585912528442800F8DD2D /* SingleDriveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDriveRequest.swift; sourceTree = "<group>"; };
 		CA95859C252844E000F8DD2D /* SingleDriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDriveResponse.swift; sourceTree = "<group>"; };
 		CA9585AD2528465600F8DD2D /* libPods-Drive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-Drive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAB1BA4F2556507C003E3CDE /* SlidingCardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingCardManager.swift; sourceTree = "<group>"; };
 		CAB592CB24CA89E3001A005A /* Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB592CE24CA89E3001A005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB592D024CA89E3001A005A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				CAB592D224CA89E3001A005A /* DriveCoordinator.swift */,
 				CA5E937824CBE71500C36AC3 /* MapVC.swift */,
 				CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */,
+				CAB1BA4F2556507C003E3CDE /* SlidingCardManager.swift */,
 				CABFC3DB24D7A2C00036A387 /* Views */,
 			);
 			path = TrackDrive;
@@ -661,6 +664,7 @@
 				CA1889BC252A72DA00BEB498 /* ArrayExtension.swift in Sources */,
 				CA9585922528442800F8DD2D /* SingleDriveRequest.swift in Sources */,
 				CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */,
+				CAB1BA502556507C003E3CDE /* SlidingCardManager.swift in Sources */,
 				CA35793324EB67B700E594A8 /* SaveDriveRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

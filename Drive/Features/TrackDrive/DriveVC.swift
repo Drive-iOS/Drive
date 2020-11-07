@@ -19,7 +19,7 @@ protocol DriveDelegate: AnyObject {
     func didUpdate(_ driveState: DriveState)
 }
 
-class DriveVC: UIViewController, StoryboardInstantiable {
+class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiable {
     enum Section {
         case drives
     }
@@ -43,11 +43,16 @@ class DriveVC: UIViewController, StoryboardInstantiable {
         return .trackDrive
     }
 
-    var dataSource: UICollectionViewDiffableDataSource<Section, Item>?
-
     weak var delegate: DriveDelegate?
 
     private var currentDriveState: DriveState = .readyToStart
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Item>?
+
+    // MARK: SlidingCardViewController
+
+    var fullHeight: CGFloat = 500
+    var partialHeight: CGFloat = 300
+    var almostHiddenHeight: CGFloat = 30
 
     // MARK: - Lifecycle
 
