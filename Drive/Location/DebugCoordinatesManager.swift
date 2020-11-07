@@ -61,8 +61,9 @@ class DebugCoordinatesManager {
             return nil
         }
 
-        let singleDrive = try? DriveService.jsonDecoder.decode(SingleDriveResponse.self, from: debugCoordinatesData)
-        let clLocations = singleDrive?.coordinates.map({ CLLocation(latitude: $0.latitude, longitude: $0.longitude) })
+        let singleDrive = try? DriveService.jsonDecoder.decode(GetCoordinatesResponse.self, from: debugCoordinatesData)
+        
+        let clLocations = singleDrive?.results.map({ CLLocation(latitude: CLLocationDegrees($0.latitude), longitude: CLLocationDegrees($0.longitude)) })
 
         return clLocations
     }

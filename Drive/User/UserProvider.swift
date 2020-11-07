@@ -14,39 +14,27 @@ enum UserProviderError: Error {
 }
 
 class UserProvider {
+    // MARK: - Properties
+    static let shared = UserProvider()
+    
     private enum Key: String {
         case userID
     }
-
-    var driveService = DriveService.shared
+    
+    // Make sure User Provider is not instantiable
+    private init () {
+        guard let userID = userDefaults.string(forKey: Key.userID.rawValue) else {
+            return
+        }
+        self.currentUser = User(id: userID)
+    }
+    
     var userDefaults = UserDefaults.standard
 
-    /// Checks local drive service, then user defaults, and lastly creates
-    /// a new user through a /register request to the drive API
-    var currentUser: User? {
-        if let currentUser = driveService.user {
-            return currentUser
-        } else if let userID = userDefaults.string(forKey: Key.userID.rawValue) {
-            return User(id: userID)
-        } else {
-            return nil
-        }
-    }
-
-    func createUser(completion: ((Result<User, UserProviderError>) -> Void)?) {
-        driveService.register { result in
-            switch result {
-            case .success(let user):
-                completion?(.success(user))
-
-            case .failure:
-                completion?(.failure(.failedRegisterRequest))
-            }
-        }
-    }
+    var currentUser: User?
 
     func saveUser() {
-        guard let currentUserID = driveService.user?.id else {
+        guard let currentUserID = currentUser?.id else {
             return
         }
 

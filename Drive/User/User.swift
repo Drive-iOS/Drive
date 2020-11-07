@@ -12,8 +12,8 @@ struct User {
     // swiftlint:disable identifier_name
     var id: String
 
-    init(registerResponse: RegisterResponse) {
-        id = registerResponse.userID
+    init(putUserResponse: PutUserResponse) {
+        id = putUserResponse.userID
     }
 
     init(id: String) {

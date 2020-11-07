@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RegisterRequest: Codable {
+struct PutUserRequest: Codable {
     var firstName: String?
     var lastName: String?
 

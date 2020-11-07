@@ -60,12 +60,29 @@ class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiab
         super.viewDidLoad()
         setUpCollectionView()
         setUpDataSource()
-        setUpSnapshot()
         setUpLayout()
+        loadDrives()
         setUpDriveButton()
     }
 
     // MARK: - Set Up
+    private func loadDrives() {
+        DriveService.getDrives { (response) in
+            switch response {
+            case .success(let allDrives):
+                var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+                snapshot.appendSections([.drives])
+                
+                for drive in allDrives.results {
+                    snapshot.appendItems([.init(name: drive.driveID)])
+                }
+                
+                self.dataSource?.apply(snapshot)
+            case .failure:
+                break
+            }
+        }
+    }
 
     private func setUpCollectionView() {
         let nib = UINib(nibName: "DriveCell", bundle: .main)
@@ -86,14 +103,6 @@ class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiab
             return driveCell
         }
         // swiftlint:enable line_length
-    }
-
-    private func setUpSnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections([.drives])
-        snapshot.appendItems([.init(name: "Drive1"), .init(name: "Drive2")])
-
-        dataSource?.apply(snapshot)
     }
 
     private func setUpLayout() {

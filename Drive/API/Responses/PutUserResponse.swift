@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RegisterResponse: Decodable {
+struct PutUserResponse: Decodable {
     let userID: String
 
     enum CodingKeys: String, CodingKey {

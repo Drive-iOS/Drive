@@ -11,8 +11,8 @@
 		CA1889AB252991EC00BEB498 /* DebugCoordinatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1889AA252991EC00BEB498 /* DebugCoordinatesManager.swift */; };
 		CA1889BC252A72DA00BEB498 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1889BB252A72DA00BEB498 /* ArrayExtension.swift */; };
 		CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35792C24EB64D600E594A8 /* UserProvider.swift */; };
-		CA35792F24EB651C00E594A8 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35792E24EB651C00E594A8 /* RegisterRequest.swift */; };
-		CA35793324EB67B700E594A8 /* SaveDriveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35793224EB67B700E594A8 /* SaveDriveRequest.swift */; };
+		CA35792F24EB651C00E594A8 /* PutUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35792E24EB651C00E594A8 /* PutUserRequest.swift */; };
+		CA35793324EB67B700E594A8 /* PutDriveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35793224EB67B700E594A8 /* PutDriveRequest.swift */; };
 		CA5E937524CBE69100C36AC3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937424CBE69100C36AC3 /* UIViewExtension.swift */; };
 		CA5E937724CBE6D600C36AC3 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937624CBE6D600C36AC3 /* Storyboard.swift */; };
 		CA5E937924CBE71500C36AC3 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937824CBE71500C36AC3 /* MapVC.swift */; };
@@ -20,12 +20,9 @@
 		CA7879BB24ECBA390013E2DF /* DriveTrailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */; };
 		CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD3825283A06001FDCF1 /* edit-plist.sh */; };
 		CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD4325283B38001FDCF1 /* swiftlint.sh */; };
-		CA916D0724D8EB6F00601E0C /* SaveDriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA916D0624D8EB6F00601E0C /* SaveDriveResponse.swift */; };
-		CA9585822528435F00F8DD2D /* AllDrivesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9585812528435F00F8DD2D /* AllDrivesRequest.swift */; };
-		CA9585872528439600F8DD2D /* AllDrivesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9585862528439600F8DD2D /* AllDrivesResponse.swift */; };
-		CA9585922528442800F8DD2D /* SingleDriveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9585912528442800F8DD2D /* SingleDriveRequest.swift */; };
-		CA95859D252844E000F8DD2D /* SingleDriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA95859C252844E000F8DD2D /* SingleDriveResponse.swift */; };
 		CAB1BA502556507C003E3CDE /* SlidingCardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB1BA4F2556507C003E3CDE /* SlidingCardManager.swift */; };
+		CA916D0724D8EB6F00601E0C /* PutDriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */; };
+		CA9585872528439600F8DD2D /* GetDrivesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9585862528439600F8DD2D /* GetDrivesResponse.swift */; };
 		CAB592CF24CA89E3001A005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592CE24CA89E3001A005A /* AppDelegate.swift */; };
 		CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D024CA89E3001A005A /* SceneDelegate.swift */; };
 		CAB592D324CA89E3001A005A /* DriveCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592D224CA89E3001A005A /* DriveCoordinator.swift */; };
@@ -43,7 +40,7 @@
 		CABFC3CA24D79F830036A387 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3C924D79F830036A387 /* LocationProvider.swift */; };
 		CABFC3CC24D79FDA0036A387 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CB24D79FDA0036A387 /* Endpoint.swift */; };
 		CABFC3CE24D7A00C0036A387 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CD24D7A00C0036A387 /* RequestFactory.swift */; };
-		CABFC3D024D7A0480036A387 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CF24D7A0480036A387 /* RegisterResponse.swift */; };
+		CABFC3D024D7A0480036A387 /* PutUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CF24D7A0480036A387 /* PutUserResponse.swift */; };
 		CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */; };
 		CABFC3DA24D7A2A40036A387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D924D7A2A40036A387 /* User.swift */; };
 		CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */; };
@@ -51,6 +48,8 @@
 		CADE676F2552527500C8AC8C /* DriveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADE676E2552527500C8AC8C /* DriveCell.xib */; };
 		CADEB26E24CD145D0048056D /* DriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26D24CD145D0048056D /* DriveButton.swift */; };
 		CADEB27024CD147E0048056D /* DriveButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */; };
+		E261D8E42554F84500021C67 /* PutCoordinatesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261D8E32554F84500021C67 /* PutCoordinatesRequest.swift */; };
+		E261D9042554FC8A00021C67 /* GetCoordinatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261D9032554FC8A00021C67 /* GetCoordinatesResponse.swift */; };
 		E7C2CF22EEFB22B73C5D77F7 /* libPods-Drive-DriveUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9755465221F031F47334A80 /* libPods-Drive-DriveUITests.a */; };
 		E94A17BB23AF1E410D24E30E /* libPods-DriveTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C62C965747285F32CA95F81 /* libPods-DriveTests.a */; };
 /* End PBXBuildFile section */
@@ -87,8 +86,8 @@
 		CA1889AA252991EC00BEB498 /* DebugCoordinatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCoordinatesManager.swift; sourceTree = "<group>"; };
 		CA1889BB252A72DA00BEB498 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		CA35792C24EB64D600E594A8 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
-		CA35792E24EB651C00E594A8 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
-		CA35793224EB67B700E594A8 /* SaveDriveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDriveRequest.swift; sourceTree = "<group>"; };
+		CA35792E24EB651C00E594A8 /* PutUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutUserRequest.swift; sourceTree = "<group>"; };
+		CA35793224EB67B700E594A8 /* PutDriveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutDriveRequest.swift; sourceTree = "<group>"; };
 		CA5E937424CBE69100C36AC3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		CA5E937624CBE6D600C36AC3 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		CA5E937824CBE71500C36AC3 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -96,11 +95,8 @@
 		CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveTrailOverlay.swift; sourceTree = "<group>"; };
 		CA82DD3825283A06001FDCF1 /* edit-plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "edit-plist.sh"; sourceTree = "<group>"; };
 		CA82DD4325283B38001FDCF1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
-		CA916D0624D8EB6F00601E0C /* SaveDriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDriveResponse.swift; sourceTree = "<group>"; };
-		CA9585812528435F00F8DD2D /* AllDrivesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDrivesRequest.swift; sourceTree = "<group>"; };
-		CA9585862528439600F8DD2D /* AllDrivesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDrivesResponse.swift; sourceTree = "<group>"; };
-		CA9585912528442800F8DD2D /* SingleDriveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDriveRequest.swift; sourceTree = "<group>"; };
-		CA95859C252844E000F8DD2D /* SingleDriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDriveResponse.swift; sourceTree = "<group>"; };
+		CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutDriveResponse.swift; sourceTree = "<group>"; };
+		CA9585862528439600F8DD2D /* GetDrivesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDrivesResponse.swift; sourceTree = "<group>"; };
 		CA9585AD2528465600F8DD2D /* libPods-Drive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-Drive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB1BA4F2556507C003E3CDE /* SlidingCardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingCardManager.swift; sourceTree = "<group>"; };
 		CAB592CB24CA89E3001A005A /* Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,7 +122,7 @@
 		CABFC3C924D79F830036A387 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		CABFC3CB24D79FDA0036A387 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		CABFC3CD24D7A00C0036A387 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
-		CABFC3CF24D7A0480036A387 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		CABFC3CF24D7A0480036A387 /* PutUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutUserResponse.swift; sourceTree = "<group>"; };
 		CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveServiceType.swift; sourceTree = "<group>"; };
 		CABFC3D924D7A2A40036A387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
@@ -134,6 +130,8 @@
 		CADE676E2552527500C8AC8C /* DriveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveCell.xib; sourceTree = "<group>"; };
 		CADEB26D24CD145D0048056D /* DriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButton.swift; sourceTree = "<group>"; };
 		CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButtonViewModel.swift; sourceTree = "<group>"; };
+		E261D8E32554F84500021C67 /* PutCoordinatesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutCoordinatesRequest.swift; sourceTree = "<group>"; };
+		E261D9032554FC8A00021C67 /* GetCoordinatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoordinatesResponse.swift; sourceTree = "<group>"; };
 		E49BCD3B90056A5E64775CC3 /* libPods-Drive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Drive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2135AE72C9526E2A152F3EB /* Pods-Drive-DriveUITests.debug local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drive-DriveUITests.debug local.xcconfig"; path = "Target Support Files/Pods-Drive-DriveUITests/Pods-Drive-DriveUITests.debug local.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,10 +193,9 @@
 		CA35793024EB652F00E594A8 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				CA35792E24EB651C00E594A8 /* RegisterRequest.swift */,
-				CA35793224EB67B700E594A8 /* SaveDriveRequest.swift */,
-				CA9585812528435F00F8DD2D /* AllDrivesRequest.swift */,
-				CA9585912528442800F8DD2D /* SingleDriveRequest.swift */,
+				CA35792E24EB651C00E594A8 /* PutUserRequest.swift */,
+				CA35793224EB67B700E594A8 /* PutDriveRequest.swift */,
+				E261D8E32554F84500021C67 /* PutCoordinatesRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -315,10 +312,10 @@
 		CABFC3D424D7A1790036A387 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				CABFC3CF24D7A0480036A387 /* RegisterResponse.swift */,
-				CA916D0624D8EB6F00601E0C /* SaveDriveResponse.swift */,
-				CA9585862528439600F8DD2D /* AllDrivesResponse.swift */,
-				CA95859C252844E000F8DD2D /* SingleDriveResponse.swift */,
+				CABFC3CF24D7A0480036A387 /* PutUserResponse.swift */,
+				CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */,
+				CA9585862528439600F8DD2D /* GetDrivesResponse.swift */,
+				E261D9032554FC8A00021C67 /* GetCoordinatesResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -635,11 +632,10 @@
 			files = (
 				CA5E937524CBE69100C36AC3 /* UIViewExtension.swift in Sources */,
 				CAB592D924CA89E3001A005A /* Drive.xcdatamodeld in Sources */,
-				CA916D0724D8EB6F00601E0C /* SaveDriveResponse.swift in Sources */,
+				CA916D0724D8EB6F00601E0C /* PutDriveResponse.swift in Sources */,
 				CAB592D324CA89E3001A005A /* DriveCoordinator.swift in Sources */,
 				CADE676A2552522D00C8AC8C /* DriveCell.swift in Sources */,
-				CA9585822528435F00F8DD2D /* AllDrivesRequest.swift in Sources */,
-				CABFC3D024D7A0480036A387 /* RegisterResponse.swift in Sources */,
+				CABFC3D024D7A0480036A387 /* PutUserResponse.swift in Sources */,
 				CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */,
 				CA7879BB24ECBA390013E2DF /* DriveTrailOverlay.swift in Sources */,
 				CABF6770254D1EA600E97751 /* VideoView.swift in Sources */,
@@ -648,24 +644,24 @@
 				CADEB27024CD147E0048056D /* DriveButtonViewModel.swift in Sources */,
 				CABFC3DA24D7A2A40036A387 /* User.swift in Sources */,
 				CABFC3C824D79F330036A387 /* DriveService.swift in Sources */,
-				CA35792F24EB651C00E594A8 /* RegisterRequest.swift in Sources */,
+				CA35792F24EB651C00E594A8 /* PutUserRequest.swift in Sources */,
 				CAB592CF24CA89E3001A005A /* AppDelegate.swift in Sources */,
 				CADEB26E24CD145D0048056D /* DriveButton.swift in Sources */,
 				CA5E937924CBE71500C36AC3 /* MapVC.swift in Sources */,
-				CA95859D252844E000F8DD2D /* SingleDriveResponse.swift in Sources */,
 				CA1889AB252991EC00BEB498 /* DebugCoordinatesManager.swift in Sources */,
 				CABFC3CE24D7A00C0036A387 /* RequestFactory.swift in Sources */,
 				CABFC3CA24D79F830036A387 /* LocationProvider.swift in Sources */,
+				E261D9042554FC8A00021C67 /* GetCoordinatesResponse.swift in Sources */,
 				CA5E937724CBE6D600C36AC3 /* Storyboard.swift in Sources */,
-				CA9585872528439600F8DD2D /* AllDrivesResponse.swift in Sources */,
+				CA9585872528439600F8DD2D /* GetDrivesResponse.swift in Sources */,
 				CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */,
 				CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */,
+				E261D8E42554F84500021C67 /* PutCoordinatesRequest.swift in Sources */,
 				CABF674C254D09B700E97751 /* AppStartViewController.swift in Sources */,
 				CA1889BC252A72DA00BEB498 /* ArrayExtension.swift in Sources */,
-				CA9585922528442800F8DD2D /* SingleDriveRequest.swift in Sources */,
 				CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */,
 				CAB1BA502556507C003E3CDE /* SlidingCardManager.swift in Sources */,
-				CA35793324EB67B700E594A8 /* SaveDriveRequest.swift in Sources */,
+				CA35793324EB67B700E594A8 /* PutDriveRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
