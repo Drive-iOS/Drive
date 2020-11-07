@@ -78,7 +78,7 @@ enum Endpoint {
             return nil
         }
     }
-
+    
     var headerFieldProperties: [String: String] {
         switch self {
         case .putUser,

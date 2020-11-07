@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setUpUser() {
-        guard userProvider.currentUser == else {
+        guard userProvider.currentUser == nil else {
             return
         }
         createNewUser()
@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func createNewUser() {
         DriveService.register {[weak self] result in
             switch result {
-            case .success(let user):
-                self?.userProvider.currentUser = user
+            case .success(let putUserResponse):
+                self?.userProvider.currentUser = User(putUserResponse: putUserResponse)
                 self?.userProvider.saveUser()
 
             case .failure(let error):
