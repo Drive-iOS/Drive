@@ -102,7 +102,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
             return
         }
 
-        DriveService.shared.saveDrive(session: drivingSession) { result in
+        DriveService.saveDrive(session: drivingSession) { result in
             switch result {
             case .success:
                 print("success")

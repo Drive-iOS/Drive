@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setUpUser() {
-        guard userProvider.currentUser == else {
+        guard userProvider.currentUser == nil else {
             return
         }
         createNewUser()
