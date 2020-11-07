@@ -30,13 +30,15 @@ class SlidingCardManager {
         containerViewController.addChild(slidingViewController)
 
         // Set up view
-        // swiftlint:disable line_length
         slidingViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        slidingViewController.view.leftAnchor.constraint(equalTo: containerViewController.view.leftAnchor).isActive = true
-        slidingViewController.view.rightAnchor.constraint(equalTo: containerViewController.view.rightAnchor).isActive = true
-        containerViewController.view.bottomAnchor.constraint(equalTo: slidingViewController.view.topAnchor,
-                                                             constant: slidingViewController.partialHeight).isActive = true
-        slidingViewController.view.heightAnchor.constraint(equalToConstant: slidingViewController.fullHeight).isActive = true
+        NSLayoutConstraint.activate([
+            slidingViewController.view.leftAnchor.constraint(equalTo: containerViewController.view.leftAnchor),
+            slidingViewController.view.rightAnchor.constraint(equalTo: containerViewController.view.rightAnchor),
+            containerViewController.view.bottomAnchor.constraint(equalTo: slidingViewController.view.topAnchor,
+                                                                 constant: slidingViewController.partialHeight),
+            slidingViewController.view.heightAnchor.constraint(equalToConstant: slidingViewController.fullHeight),
+            slidingViewController.view.heightAnchor.constraint(equalToConstant: slidingViewController.fullHeight)
+        ])
 
         // Set up sliding
         let gestureRecognizer = UIPanGestureRecognizer(target: self,
@@ -50,6 +52,7 @@ class SlidingCardManager {
             initialOrigin = slidingViewController.view.frame.origin
 
         case .changed:
+            // swiftlint:disable line_length
             let yTranslation = gestureRecognizer.translation(in: containerViewController.view).y
             let updatedY = initialOrigin.y + yTranslation
             let isNotTooHigh = updatedY + slidingViewController.fullHeight >= containerViewController.view.bounds.height
