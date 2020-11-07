@@ -55,8 +55,8 @@ class DriveVC: UIViewController, StoryboardInstantiable {
         super.viewDidLoad()
         setUpCollectionView()
         setUpDataSource()
-        loadDrives()
         setUpLayout()
+        loadDrives()
         setUpDriveButton()
     }
 
