@@ -21,7 +21,7 @@ enum Endpoint {
         guard let scheme = bundle.object(forInfoDictionaryKey: "DriveServiceScheme") as? String else {
             fatalError("Expected DriveServiceScheme to exist")
         }
-S
+
         return scheme
     }
 
