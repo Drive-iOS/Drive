@@ -15,9 +15,9 @@ protocol SlidingCardViewController: UIViewController {
 }
 
 class SlidingCardManager {
-    var slidingViewController: SlidingCardViewController
-    var containerViewController: UIViewController
-    var initialOrigin = CGPoint.zero
+    private var slidingViewController: SlidingCardViewController
+    private var containerViewController: UIViewController
+    private var currentStartingOrigin = CGPoint.zero
 
     init(slidingViewController: SlidingCardViewController,
          containerViewController: UIViewController) {
@@ -49,12 +49,12 @@ class SlidingCardManager {
     @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         switch gestureRecognizer.state {
         case .began:
-            initialOrigin = slidingViewController.view.frame.origin
+            currentStartingOrigin = slidingViewController.view.frame.origin
 
         case .changed:
             // swiftlint:disable line_length
             let yTranslation = gestureRecognizer.translation(in: containerViewController.view).y
-            let updatedY = initialOrigin.y + yTranslation
+            let updatedY = currentStartingOrigin.y + yTranslation
             let isNotTooHigh = updatedY + slidingViewController.fullHeight >= containerViewController.view.bounds.height
             let isNotTooLow = containerViewController.view.bounds.height - updatedY >= slidingViewController.almostHiddenHeight
             let shouldUpdateY = isNotTooLow && isNotTooHigh
