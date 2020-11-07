@@ -59,7 +59,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     private func setUpDriveVC() {
         let driveVC = DriveVC.fromStoryboard()
         slidingCardManager = SlidingCardManager(slidingViewController: driveVC,
-                                                  containerViewController: self)
+                                                containerViewController: self)
         slidingCardManager.setUp()
         self.driveVC = driveVC
         driveVC.delegate = self
