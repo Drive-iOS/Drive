@@ -8,26 +8,22 @@
 
 import Foundation
 
-struct SaveDriveCoordinate: Codable {
-    let longitude: Double
-    let latitude: Double
-}
-
-struct SaveDriveRequest: Codable {
+struct PutDriveRequest: Codable {
     let userID: String
     let startDate: Date
     let endDate: Date
-    let coordinates: [SaveDriveCoordinate]
+    let coordinates: [PutCoordinateRequest]
 
     init(user: User, session: DrivingSession) {
         userID = user.id
         startDate = session.startDate
         endDate = session.endDate
-        coordinates = session.locations.map { SaveDriveCoordinate(longitude: $0.longitude, latitude: $0.latitude) }
+        coordinates = session.locations.map {
+            PutCoordinateRequest(longitude: $0.longitude, latitude: $0.latitude) }
     }
 
     enum CodingKeys: String, CodingKey {
-        case userID = "userId"
+        case userID = "user_id"
         case startDate = "start_time"
         case endDate = "end_time"
         case coordinates
