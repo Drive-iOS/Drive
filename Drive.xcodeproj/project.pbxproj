@@ -40,7 +40,6 @@
 		CABFC3CC24D79FDA0036A387 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CB24D79FDA0036A387 /* Endpoint.swift */; };
 		CABFC3CE24D7A00C0036A387 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CD24D7A00C0036A387 /* RequestFactory.swift */; };
 		CABFC3D024D7A0480036A387 /* PutUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CF24D7A0480036A387 /* PutUserResponse.swift */; };
-		CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */; };
 		CABFC3DA24D7A2A40036A387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D924D7A2A40036A387 /* User.swift */; };
 		CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */; };
 		CADE676A2552522D00C8AC8C /* DriveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADE67692552522D00C8AC8C /* DriveCell.swift */; };
@@ -121,7 +120,6 @@
 		CABFC3CB24D79FDA0036A387 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		CABFC3CD24D7A00C0036A387 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		CABFC3CF24D7A0480036A387 /* PutUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutUserResponse.swift; sourceTree = "<group>"; };
-		CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveServiceType.swift; sourceTree = "<group>"; };
 		CABFC3D924D7A2A40036A387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		CADE67692552522D00C8AC8C /* DriveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveCell.swift; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 			children = (
 				CABFC3CB24D79FDA0036A387 /* Endpoint.swift */,
 				CABFC3C724D79F330036A387 /* DriveService.swift */,
-				CABFC3D524D7A1F00036A387 /* DriveServiceType.swift */,
 				CABFC3CD24D7A00C0036A387 /* RequestFactory.swift */,
 				CA35793024EB652F00E594A8 /* Requests */,
 				CABFC3D424D7A1790036A387 /* Responses */,
@@ -651,7 +648,6 @@
 				E261D9042554FC8A00021C67 /* GetCoordinatesResponse.swift in Sources */,
 				CA5E937724CBE6D600C36AC3 /* Storyboard.swift in Sources */,
 				CA9585872528439600F8DD2D /* GetDrivesResponse.swift in Sources */,
-				CABFC3D624D7A1F00036A387 /* DriveServiceType.swift in Sources */,
 				CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */,
 				E261D8E42554F84500021C67 /* PutCoordinatesRequest.swift in Sources */,
 				CABF674C254D09B700E97751 /* AppStartViewController.swift in Sources */,

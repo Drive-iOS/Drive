@@ -20,7 +20,7 @@ enum DriveServiceError: Error {
     case invalidCurrentUser
 }
 
-struct DriveService: DriveServiceType {
+struct DriveService  {
     // MARK: - Properties
     static let urlSession = URLSession(configuration: .default)
     
@@ -44,9 +44,7 @@ struct DriveService: DriveServiceType {
     // MARK: - Type Aliases
     typealias RequestCompletion<T> = (Result<T, DriveServiceError>) -> Void
     
-    
-    // MARK: - Register
-    
+    // MARK: - Request Builder
     static private func makeEndpointRequest<T> (endpoint: Endpoint, model: T.Type, completion: @escaping RequestCompletion<T>) -> Void where T : Decodable {
         guard let request = RequestFactory.urlRequest(for: endpoint) else {
             completion(.failure(.invalidRequest))
@@ -63,7 +61,7 @@ struct DriveService: DriveServiceType {
         dataTask.resume()
     }
     
-    
+    // MARK: - Requests
     static func register(completion: @escaping RequestCompletion<PutUserResponse>) -> Void {
         return makeEndpointRequest(endpoint: .putUser, model: PutUserResponse.self, completion: completion)
     }

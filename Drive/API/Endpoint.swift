@@ -21,7 +21,7 @@ enum Endpoint {
         guard let scheme = bundle.object(forInfoDictionaryKey: "DriveServiceScheme") as? String else {
             fatalError("Expected DriveServiceScheme to exist")
         }
-
+S
         return scheme
     }
 
@@ -29,7 +29,7 @@ enum Endpoint {
         guard let host = bundle.object(forInfoDictionaryKey: "DriveServiceDomain") as? String else {
             fatalError("Expected DriveServiceDomain to exist")
         }
-
+        
         return host
     }
 
@@ -37,7 +37,7 @@ enum Endpoint {
         guard let host = bundle.object(forInfoDictionaryKey: "DriveServicePort") as? String else {
             return nil
         }
-
+        
         return Int(host)
     }
 
@@ -52,7 +52,6 @@ enum Endpoint {
         case .getDrives:
             return commonPath + "/drives"
         }
-        
     }
 
     var httpMethod: String {
@@ -70,7 +69,6 @@ enum Endpoint {
         case .putUser:
             let registerRequest = PutUserRequest()
             return try? DriveService.jsonEncoder.encode(registerRequest)
-
         case .putDrive(let user, let session):
             let saveDriveRequest = PutDriveRequest(user: user, session: session)
             return try? DriveService.jsonEncoder.encode(saveDriveRequest)
