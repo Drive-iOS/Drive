@@ -23,9 +23,10 @@ class UserProvider {
     
     // Make sure User Provider is not instantiable
     private init () {
-        if let userID = userDefaults.string(forKey: Key.userID.rawValue)  {
-            self.currentUser = User(id: userID)
+        guard let userID = userDefaults.string(forKey: Key.userID.rawValue) else {
+            return
         }
+        self.currentUser = User(id: userID)
     }
     
     var userDefaults = UserDefaults.standard
