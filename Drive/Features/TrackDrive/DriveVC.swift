@@ -72,11 +72,11 @@ class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiab
             case .success(let allDrives):
                 var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
                 snapshot.appendSections([.drives])
-                
+
                 for drive in allDrives.results {
                     snapshot.appendItems([.init(name: drive.driveID)])
                 }
-                
+
                 self.dataSource?.apply(snapshot)
             case .failure:
                 break

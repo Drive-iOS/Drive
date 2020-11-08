@@ -16,11 +16,11 @@ enum UserProviderError: Error {
 class UserProvider {
     // MARK: - Properties
     static let shared = UserProvider()
-    
+
     private enum Key: String {
         case userID
     }
-    
+
     // Make sure User Provider is not instantiable
     private init () {
         guard let userID = userDefaults.string(forKey: Key.userID.rawValue) else {
@@ -28,7 +28,7 @@ class UserProvider {
         }
         self.currentUser = User(id: userID)
     }
-    
+
     var userDefaults = UserDefaults.standard
 
     var currentUser: User?

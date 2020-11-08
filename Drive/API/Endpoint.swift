@@ -52,7 +52,7 @@ enum Endpoint {
         case .getDrives:
             return commonPath + "/drives"
         }
-        
+
     }
 
     var httpMethod: String {

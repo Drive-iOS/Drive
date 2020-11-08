@@ -23,10 +23,10 @@ enum DriveServiceError: Error {
 struct DriveService: DriveServiceType {
     // MARK: - Properties
     static let urlSession = URLSession(configuration: .default)
-    
+
     // Make sure Drive Service is not instantiable
     private init () {
-        
+
     }
 
     static var jsonDecoder: JSONDecoder {
@@ -70,9 +70,9 @@ struct DriveService: DriveServiceType {
 
         dataTask.resume()
     }
-    
+
     // MARK: - Get Drives
-    
+
     static func getDrives(completion: @escaping GetDrivesCompletion) {
         guard let request = RequestFactory.urlRequest(for: Endpoint.getDrives) else {
             completion(.failure(.invalidRequest))
@@ -87,13 +87,13 @@ struct DriveService: DriveServiceType {
             guard let allDrivesResponse = try? JSONDecoder().decode(GetDrivesResponse.self, from: data) else {
                 return completion(.failure(.invalidResponse))
             }
-            
+
             completion(.success(allDrivesResponse))
         }
 
         dataTask.resume()
     }
-    
+
     // MARK: - Save Drive
 
     static func saveDrive(session: DrivingSession, completion: @escaping SaveDriveCompletion) {
