@@ -29,7 +29,7 @@ enum Endpoint {
         guard let host = bundle.object(forInfoDictionaryKey: "DriveServiceDomain") as? String else {
             fatalError("Expected DriveServiceDomain to exist")
         }
-        
+
         return host
     }
 
@@ -37,7 +37,7 @@ enum Endpoint {
         guard let host = bundle.object(forInfoDictionaryKey: "DriveServicePort") as? String else {
             return nil
         }
-        
+
         return Int(host)
     }
 
@@ -76,7 +76,7 @@ enum Endpoint {
             return nil
         }
     }
-    
+
     var headerFieldProperties: [String: String] {
         switch self {
         case .putUser,
