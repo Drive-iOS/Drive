@@ -20,13 +20,13 @@ enum DriveServiceError: Error {
     case invalidCurrentUser
 }
 
-struct DriveService  {
+struct DriveService {
     // MARK: - Properties
     static let urlSession = URLSession(configuration: .default)
-    
+
     // Make sure Drive Service is not instantiable
     private init () {
-        
+
     }
 
     static var jsonDecoder: JSONDecoder {
@@ -43,14 +43,16 @@ struct DriveService  {
 
     // MARK: - Type Aliases
     typealias RequestCompletion<T> = (Result<T, DriveServiceError>) -> Void
-    
+
     // MARK: - Request Builder
-    static private func makeEndpointRequest<T> (endpoint: Endpoint, model: T.Type, completion: @escaping RequestCompletion<T>) -> Void where T : Decodable {
+    static private func makeEndpointRequest<T> (endpoint: Endpoint,
+                                                model: T.Type,
+                                                completion: @escaping RequestCompletion<T>) where T: Decodable {
         guard let request = RequestFactory.urlRequest(for: endpoint) else {
             completion(.failure(.invalidRequest))
             return
         }
-        
+
         let dataTask = urlSession.dataTask(with: request) { data, _, _ in
             guard let data = data, let response = try? JSONDecoder().decode(model, from: data) else {
                 completion(.failure(.invalidResponse))
@@ -60,21 +62,23 @@ struct DriveService  {
         }
         dataTask.resume()
     }
-    
+
     // MARK: - Requests
-    static func register(completion: @escaping RequestCompletion<PutUserResponse>) -> Void {
+    static func register(completion: @escaping RequestCompletion<PutUserResponse>) {
         return makeEndpointRequest(endpoint: .putUser, model: PutUserResponse.self, completion: completion)
     }
-    
-    static func getDrives(completion: @escaping RequestCompletion<GetDrivesResponse>) -> Void {
+
+    static func getDrives(completion: @escaping RequestCompletion<GetDrivesResponse>) {
         return makeEndpointRequest(endpoint: .getDrives, model: GetDrivesResponse.self, completion: completion)
     }
-    
-    static func saveDrive(session: DrivingSession, completion: @escaping RequestCompletion<PutDriveResponse>) -> Void {
+
+    static func saveDrive(session: DrivingSession, completion: @escaping RequestCompletion<PutDriveResponse>) {
         guard let user = UserProvider.shared.currentUser else {
             completion(.failure(.invalidCurrentUser))
             return
         }
-        return makeEndpointRequest(endpoint: .putDrive(user: user, session: session), model: PutDriveResponse.self, completion: completion)
+        return makeEndpointRequest(endpoint: .putDrive(user: user, session: session),
+                                   model: PutDriveResponse.self,
+                                   completion: completion)
     }
 }

@@ -13,7 +13,7 @@ struct GetDriveReponse: Decodable {
     let driveID: String
     let startTime: String
     let endTime: String
-    
+
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
         case driveID = "drive_id"

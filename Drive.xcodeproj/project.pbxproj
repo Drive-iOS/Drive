@@ -20,6 +20,7 @@
 		CA7879BB24ECBA390013E2DF /* DriveTrailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */; };
 		CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD3825283A06001FDCF1 /* edit-plist.sh */; };
 		CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD4325283B38001FDCF1 /* swiftlint.sh */; };
+		CAB1BA502556507C003E3CDE /* SlidingCardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB1BA4F2556507C003E3CDE /* SlidingCardManager.swift */; };
 		CA916D0724D8EB6F00601E0C /* PutDriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */; };
 		CA9585872528439600F8DD2D /* GetDrivesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9585862528439600F8DD2D /* GetDrivesResponse.swift */; };
 		CAB592CF24CA89E3001A005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB592CE24CA89E3001A005A /* AppDelegate.swift */; };
@@ -96,6 +97,7 @@
 		CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutDriveResponse.swift; sourceTree = "<group>"; };
 		CA9585862528439600F8DD2D /* GetDrivesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDrivesResponse.swift; sourceTree = "<group>"; };
 		CA9585AD2528465600F8DD2D /* libPods-Drive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-Drive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAB1BA4F2556507C003E3CDE /* SlidingCardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingCardManager.swift; sourceTree = "<group>"; };
 		CAB592CB24CA89E3001A005A /* Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB592CE24CA89E3001A005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAB592D024CA89E3001A005A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				CAB592D224CA89E3001A005A /* DriveCoordinator.swift */,
 				CA5E937824CBE71500C36AC3 /* MapVC.swift */,
 				CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */,
+				CAB1BA4F2556507C003E3CDE /* SlidingCardManager.swift */,
 				CABFC3DB24D7A2C00036A387 /* Views */,
 			);
 			path = TrackDrive;
@@ -653,6 +656,7 @@
 				CABF674C254D09B700E97751 /* AppStartViewController.swift in Sources */,
 				CA1889BC252A72DA00BEB498 /* ArrayExtension.swift in Sources */,
 				CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */,
+				CAB1BA502556507C003E3CDE /* SlidingCardManager.swift in Sources */,
 				CA35793324EB67B700E594A8 /* PutDriveRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

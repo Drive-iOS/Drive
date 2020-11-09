@@ -28,6 +28,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     private var isFirstLocationOfDrive = true
     private var mapVC: MapVC!
     private var driveVC: DriveVC!
+    private var slidingCardManager: SlidingCardManager!
     private var locationProvider = LocationProvider(locationSource: .debug(DebugCoordinatesManager()))
 
     static var appStoryboard: Storyboard {
@@ -57,14 +58,9 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
 
     private func setUpDriveVC() {
         let driveVC = DriveVC.fromStoryboard()
-
-        view.addSubview(driveVC.view)
-        addChild(driveVC)
-        driveVC.view.translatesAutoresizingMaskIntoConstraints = false
-        driveVC.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        driveVC.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        driveVC.view.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-        driveVC.view.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.66).isActive = true
+        slidingCardManager = SlidingCardManager(slidingViewController: driveVC,
+                                                containerViewController: self)
+        slidingCardManager.setUp()
         self.driveVC = driveVC
         driveVC.delegate = self
     }
@@ -106,7 +102,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
             return
         }
 
-        DriveService.shared.saveDrive(session: drivingSession) { result in
+        DriveService.saveDrive(session: drivingSession) { result in
             switch result {
             case .success:
                 print("success")
