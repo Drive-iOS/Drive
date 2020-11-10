@@ -50,9 +50,9 @@ class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiab
 
     // MARK: SlidingCardViewController
 
-    var fullHeight: CGFloat = 500
-    var partialHeight: CGFloat = 300
-    var almostHiddenHeight: CGFloat = 30
+    var fullPosition = SlidingCardManager.Position.full(500)
+    var partialPosition = SlidingCardManager.Position.partial(300)
+    var hiddenPosition = SlidingCardManager.Position.hidden(30)
 
     // MARK: - Lifecycle
 
