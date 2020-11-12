@@ -80,7 +80,7 @@ class SlidingCardManager {
             slidingViewController.view.rightAnchor.constraint(equalTo: containerViewController.view.rightAnchor),
             slidingViewController.view.heightAnchor.constraint(equalToConstant: slidingViewController.fullPosition.value),
             containerViewController.view.bottomAnchor.constraint(equalTo: slidingViewController.view.topAnchor,
-                                                                 constant: slidingViewController.fullPosition.value)
+                                                                 constant: position.value)
         ])
 
         // Set up sliding
