@@ -19,6 +19,8 @@
 		CA5E937B24CBEAE000C36AC3 /* DriveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */; };
 		CA7879BB24ECBA390013E2DF /* DriveTrailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */; };
 		CA7F1A8B255FA4F500127E8A /* DebugStepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1A8A255FA4F500127E8A /* DebugStepManager.swift */; };
+		CA7F1A94255FADBB00127E8A /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1A93255FADBB00127E8A /* FeatureFlag.swift */; };
+		CA7F1A9D255FAE8D00127E8A /* DebugMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1A9C255FAE8D00127E8A /* DebugMenuView.swift */; };
 		CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD3825283A06001FDCF1 /* edit-plist.sh */; };
 		CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD4325283B38001FDCF1 /* swiftlint.sh */; };
 		CA916D0724D8EB6F00601E0C /* PutDriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */; };
@@ -94,6 +96,8 @@
 		CA5E937A24CBEAE000C36AC3 /* DriveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveVC.swift; sourceTree = "<group>"; };
 		CA7879BA24ECBA390013E2DF /* DriveTrailOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveTrailOverlay.swift; sourceTree = "<group>"; };
 		CA7F1A8A255FA4F500127E8A /* DebugStepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugStepManager.swift; sourceTree = "<group>"; };
+		CA7F1A93255FADBB00127E8A /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
+		CA7F1A9C255FAE8D00127E8A /* DebugMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuView.swift; sourceTree = "<group>"; };
 		CA82DD3825283A06001FDCF1 /* edit-plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "edit-plist.sh"; sourceTree = "<group>"; };
 		CA82DD4325283B38001FDCF1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutDriveResponse.swift; sourceTree = "<group>"; };
@@ -217,6 +221,22 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		CA7F1A92255FAD8600127E8A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CA7F1A9B255FAE5300127E8A /* DebugMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CA7F1A93255FADBB00127E8A /* FeatureFlag.swift */,
+				CA7F1A9C255FAE8D00127E8A /* DebugMenuView.swift */,
+			);
+			path = DebugMenu;
+			sourceTree = "<group>";
+		};
 		CA82DD3725283A05001FDCF1 /* BuildPhases */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +277,7 @@
 				CA35793124EB656800E594A8 /* User */,
 				CABFC3D724D7A2520036A387 /* Location */,
 				CA7879BC24ECBF5B0013E2DF /* Map */,
+				CA7F1A92255FAD8600127E8A /* Common */,
 				CABFC3E024D7A4C90036A387 /* Features */,
 				CABFC3DE24D7A3120036A387 /* Storyboard */,
 				CABFC3DF24D7A39C0036A387 /* Extensions */,
@@ -379,6 +400,7 @@
 			children = (
 				CABF6750254D09C800E97751 /* AppStart */,
 				CABFC3D824D7A2630036A387 /* TrackDrive */,
+				CA7F1A9B255FAE5300127E8A /* DebugMenu */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -631,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA5E937524CBE69100C36AC3 /* UIViewExtension.swift in Sources */,
+				CA7F1A94255FADBB00127E8A /* FeatureFlag.swift in Sources */,
 				CAB592D924CA89E3001A005A /* Drive.xcdatamodeld in Sources */,
 				CA916D0724D8EB6F00601E0C /* PutDriveResponse.swift in Sources */,
 				CAB592D324CA89E3001A005A /* DriveCoordinator.swift in Sources */,
@@ -662,6 +685,7 @@
 				CA35792D24EB64D600E594A8 /* UserProvider.swift in Sources */,
 				CAB1BA502556507C003E3CDE /* SlidingCardManager.swift in Sources */,
 				CA35793324EB67B700E594A8 /* PutDriveRequest.swift in Sources */,
+				CA7F1A9D255FAE8D00127E8A /* DebugMenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
