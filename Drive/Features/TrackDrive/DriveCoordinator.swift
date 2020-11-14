@@ -32,7 +32,7 @@ class DriveCoordinator: UIViewController,
     private var mapVC: MapVC!
     private var driveVC: DriveVC!
     private var slidingCardManager: SlidingCardManager!
-    private var locationProvider = LocationProvider(locationSource: .debug(DebugCoordinatesManager()))
+    private var locationProvider: LocationProvider!
 
     static var appStoryboard: Storyboard {
         return .trackDrive
@@ -44,7 +44,6 @@ class DriveCoordinator: UIViewController,
         super.viewDidLoad()
         setUpMapVC()
         setUpDriveVC()
-        setUpLocationProvider()
     }
 
     // MARK: - Set up
@@ -69,6 +68,15 @@ class DriveCoordinator: UIViewController,
     }
 
     private func setUpLocationProvider() {
+        let locationSource: LocationSource
+
+        if FeatureFlags.shouldUseDebugCoordinates.isEnabled {
+            locationSource = .debug(DebugCoordinatesManager())
+        } else {
+            locationSource = .device(CLLocationManager())
+        }
+
+        locationProvider = LocationProvider(locationSource: locationSource)
         locationProvider.delegate = self
     }
 
@@ -81,6 +89,9 @@ class DriveCoordinator: UIViewController,
 
         case .inProgress:
             drivingSession = DrivingSession(startDate: Date())
+            // Set up location provider when beginning
+            // drive in case feature flag has changed
+            setUpLocationProvider()
             locationProvider.startReceivingLocationUpdates()
 
         case .completed:
