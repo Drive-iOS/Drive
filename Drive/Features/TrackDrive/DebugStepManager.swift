@@ -16,12 +16,11 @@ protocol DebugStepManagerDelegate: AnyObject {
 class DebugStepManager {
     // MARK: - Properties
 
-    var currentCount = 0
-    let expectedCount: Int
-    let limitInSeconds: TimeInterval
-
     weak var delegate: DebugStepManagerDelegate?
 
+    private var currentCount = 0
+    private let expectedCount: Int
+    private let limitInSeconds: TimeInterval
     private var timer: Timer?
 
     // MARK: - Init
