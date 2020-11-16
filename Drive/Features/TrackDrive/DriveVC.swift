@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SwiftUI
 
 enum DriveState: Equatable {
     case readyToStart
@@ -173,6 +174,9 @@ class DriveVC: UIViewController,
 
     // swiftlint:disable:next identifier_name
     func didReach(expectedCount: Int, in: TimeInterval) {
-        // Present debug view
+        let debugMenuView = DebugMenuView(featureFlags: FeatureFlags.all)
+        let debugMenuVC = UIHostingController(rootView: debugMenuView)
+
+        present(debugMenuVC, animated: true, completion: nil)
     }
 }

@@ -15,7 +15,10 @@ struct DrivingSession {
     var locations: [CLLocationCoordinate2D] = []
 }
 
-class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegate, StoryboardInstantiable {
+class DriveCoordinator: UIViewController,
+                        DriveDelegate,
+                        LocationProviderDelegate,
+                        StoryboardInstantiable {
     // MARK: - IBOutlets
 
     @IBOutlet private var mapContainerView: UIView!
@@ -29,7 +32,7 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     private var mapVC: MapVC!
     private var driveVC: DriveVC!
     private var slidingCardManager: SlidingCardManager!
-    private var locationProvider = LocationProvider(locationSource: .debug(DebugCoordinatesManager()))
+    private var locationProvider: LocationProvider!
 
     static var appStoryboard: Storyboard {
         return .trackDrive
@@ -41,7 +44,6 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
         super.viewDidLoad()
         setUpMapVC()
         setUpDriveVC()
-        setUpLocationProvider()
     }
 
     // MARK: - Set up
@@ -66,6 +68,15 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
     }
 
     private func setUpLocationProvider() {
+        let locationSource: LocationSource
+
+        if FeatureFlags.shouldUseDebugCoordinates.isEnabled {
+            locationSource = .debug(DebugCoordinatesManager())
+        } else {
+            locationSource = .device(CLLocationManager())
+        }
+
+        locationProvider = LocationProvider(locationSource: locationSource)
         locationProvider.delegate = self
     }
 
@@ -78,6 +89,9 @@ class DriveCoordinator: UIViewController, DriveDelegate, LocationProviderDelegat
 
         case .inProgress:
             drivingSession = DrivingSession(startDate: Date())
+            // Set up location provider when beginning
+            // drive in case feature flag has changed
+            setUpLocationProvider()
             locationProvider.startReceivingLocationUpdates()
 
         case .completed:
