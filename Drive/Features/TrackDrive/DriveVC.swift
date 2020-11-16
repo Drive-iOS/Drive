@@ -19,7 +19,10 @@ protocol DriveDelegate: AnyObject {
     func didUpdate(_ driveState: DriveState)
 }
 
-class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiable {
+class DriveVC: UIViewController,
+               SlidingCardViewController,
+               DebugStepManagerDelegate,
+               StoryboardInstantiable {
     enum Section {
         case drives
     }
@@ -46,6 +49,7 @@ class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiab
     weak var delegate: DriveDelegate?
 
     private var currentDriveState: DriveState = .readyToStart
+    private var tapDebugStepManager: DebugStepManager?
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item>?
 
     // MARK: SlidingCardViewController
@@ -63,9 +67,11 @@ class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiab
         setUpLayout()
         loadDrives()
         setUpDriveButton()
+        setUpDebugStepsManager()
     }
 
     // MARK: - Set Up
+
     private func loadDrives() {
         DriveService.getDrives { (response) in
             switch response {
@@ -124,6 +130,14 @@ class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiab
         updateButton(withDriveState: currentDriveState)
     }
 
+    private func setUpDebugStepsManager() {
+        tapDebugStepManager = DebugStepManager(expectedCount: 5, limitInSeconds: 3)
+        tapDebugStepManager?.delegate = self
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+
     // MARK: - Updating UI
 
     @IBAction func tappedDriveButton(_ sender: UIButton) {
@@ -147,5 +161,18 @@ class DriveVC: UIViewController, SlidingCardViewController, StoryboardInstantiab
         self.currentDriveState = driveState
         driveButton.update(withViewModel: DriveButtonViewModel(driveState: driveState))
         delegate?.didUpdate(driveState)
+    }
+
+    // MARK: - Debug Step Manager
+
+    @objc private func handleTapGesture(_ gestureRecognizer: UITapGestureRecognizer) {
+        tapDebugStepManager?.incrementCount()
+    }
+
+    // MARK: - DebugStepManagerDelegate
+
+    // swiftlint:disable:next identifier_name
+    func didReach(expectedCount: Int, in: TimeInterval) {
+        // Present debug view
     }
 }

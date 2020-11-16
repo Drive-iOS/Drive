@@ -134,7 +134,7 @@ class SlidingCardManager {
 
     private func updateSlidePosition(for direction: Direction) {
         let updatedSlidePosition = currentSlidePosition.nextPosition(for: slidingViewController, in: direction)
-        
+
         UIView.animate(withDuration: 0.2, animations: {
             self.slidingViewController.view.frame.origin.y = self.containerViewController.view.bounds.height - updatedSlidePosition.value
         })
