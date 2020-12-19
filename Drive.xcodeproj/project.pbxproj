@@ -50,6 +50,7 @@
 		CADE676F2552527500C8AC8C /* DriveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADE676E2552527500C8AC8C /* DriveCell.xib */; };
 		CADEB26E24CD145D0048056D /* DriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26D24CD145D0048056D /* DriveButton.swift */; };
 		CADEB27024CD147E0048056D /* DriveButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */; };
+		CAF075A02577FAA1009800E5 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF0759F2577FAA1009800E5 /* UIViewPreview.swift */; };
 		E261D8E42554F84500021C67 /* PutCoordinatesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261D8E32554F84500021C67 /* PutCoordinatesRequest.swift */; };
 		E261D9042554FC8A00021C67 /* GetCoordinatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E261D9032554FC8A00021C67 /* GetCoordinatesResponse.swift */; };
 		E7C2CF22EEFB22B73C5D77F7 /* libPods-Drive-DriveUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9755465221F031F47334A80 /* libPods-Drive-DriveUITests.a */; };
@@ -134,6 +135,7 @@
 		CADE676E2552527500C8AC8C /* DriveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveCell.xib; sourceTree = "<group>"; };
 		CADEB26D24CD145D0048056D /* DriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButton.swift; sourceTree = "<group>"; };
 		CADEB26F24CD147E0048056D /* DriveButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButtonViewModel.swift; sourceTree = "<group>"; };
+		CAF0759F2577FAA1009800E5 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
 		E261D8E32554F84500021C67 /* PutCoordinatesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutCoordinatesRequest.swift; sourceTree = "<group>"; };
 		E261D9032554FC8A00021C67 /* GetCoordinatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoordinatesResponse.swift; sourceTree = "<group>"; };
 		E49BCD3B90056A5E64775CC3 /* libPods-Drive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Drive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +275,7 @@
 			children = (
 				CAB592CE24CA89E3001A005A /* AppDelegate.swift */,
 				CAB592D024CA89E3001A005A /* SceneDelegate.swift */,
+				CAF0759F2577FAA1009800E5 /* UIViewPreview.swift */,
 				CABFC3D324D7A1380036A387 /* API */,
 				CA35793124EB656800E594A8 /* User */,
 				CABFC3D724D7A2520036A387 /* Location */,
@@ -677,6 +680,7 @@
 				CABFC3CA24D79F830036A387 /* LocationProvider.swift in Sources */,
 				E261D9042554FC8A00021C67 /* GetCoordinatesResponse.swift in Sources */,
 				CA5E937724CBE6D600C36AC3 /* Storyboard.swift in Sources */,
+				CAF075A02577FAA1009800E5 /* UIViewPreview.swift in Sources */,
 				CA9585872528439600F8DD2D /* GetDrivesResponse.swift in Sources */,
 				CAB592D124CA89E3001A005A /* SceneDelegate.swift in Sources */,
 				E261D8E42554F84500021C67 /* PutCoordinatesRequest.swift in Sources */,
