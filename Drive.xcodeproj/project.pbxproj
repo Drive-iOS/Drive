@@ -46,6 +46,7 @@
 		CABFC3D024D7A0480036A387 /* PutUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3CF24D7A0480036A387 /* PutUserResponse.swift */; };
 		CABFC3DA24D7A2A40036A387 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3D924D7A2A40036A387 /* User.swift */; };
 		CABFC3DD24D7A3010036A387 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */; };
+		CAC026B02563863400A29BBE /* postgres.sh in Resources */ = {isa = PBXBuildFile; fileRef = CAC026AF2563863400A29BBE /* postgres.sh */; };
 		CADE676A2552522D00C8AC8C /* DriveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADE67692552522D00C8AC8C /* DriveCell.swift */; };
 		CADE676F2552527500C8AC8C /* DriveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADE676E2552527500C8AC8C /* DriveCell.xib */; };
 		CADEB26E24CD145D0048056D /* DriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB26D24CD145D0048056D /* DriveButton.swift */; };
@@ -131,6 +132,7 @@
 		CABFC3CF24D7A0480036A387 /* PutUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutUserResponse.swift; sourceTree = "<group>"; };
 		CABFC3D924D7A2A40036A387 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CABFC3DC24D7A3010036A387 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		CAC026AF2563863400A29BBE /* postgres.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = postgres.sh; sourceTree = "<group>"; };
 		CADE67692552522D00C8AC8C /* DriveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveCell.swift; sourceTree = "<group>"; };
 		CADE676E2552527500C8AC8C /* DriveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveCell.xib; sourceTree = "<group>"; };
 		CADEB26D24CD145D0048056D /* DriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveButton.swift; sourceTree = "<group>"; };
@@ -223,13 +225,6 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		CA7F1A92255FAD8600127E8A /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		CA7F1A9B255FAE5300127E8A /* DebugMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,13 +234,14 @@
 			path = DebugMenu;
 			sourceTree = "<group>";
 		};
-		CA82DD3725283A05001FDCF1 /* BuildPhases */ = {
+		CA82DD3725283A05001FDCF1 /* BuildPhasesScripts */ = {
 			isa = PBXGroup;
 			children = (
 				CA82DD4325283B38001FDCF1 /* swiftlint.sh */,
 				CA82DD3825283A06001FDCF1 /* edit-plist.sh */,
+				CAC026AF2563863400A29BBE /* postgres.sh */,
 			);
-			path = BuildPhases;
+			path = BuildPhasesScripts;
 			sourceTree = "<group>";
 		};
 		CAB592C224CA89E2001A005A = {
@@ -280,11 +276,10 @@
 				CA35793124EB656800E594A8 /* User */,
 				CABFC3D724D7A2520036A387 /* Location */,
 				CA7879BC24ECBF5B0013E2DF /* Map */,
-				CA7F1A92255FAD8600127E8A /* Common */,
 				CABFC3E024D7A4C90036A387 /* Features */,
 				CABFC3DE24D7A3120036A387 /* Storyboard */,
 				CABFC3DF24D7A39C0036A387 /* Extensions */,
-				CA82DD3725283A05001FDCF1 /* BuildPhases */,
+				CA82DD3725283A05001FDCF1 /* BuildPhasesScripts */,
 				CAB592DA24CA89E4001A005A /* Assets.xcassets */,
 				CAB592DF24CA89E4001A005A /* Info.plist */,
 				CAB592D724CA89E3001A005A /* Drive.xcdatamodeld */,
@@ -419,6 +414,7 @@
 				CAB592C724CA89E3001A005A /* Sources */,
 				CA5E937324CBAE5900C36AC3 /* SwiftLint Script */,
 				CA82DD1325281F38001FDCF1 /* Edit Plist Script */,
+				CAC026AE256385C100A29BBE /* Postgres Script */,
 				CAB592C824CA89E3001A005A /* Frameworks */,
 				CAB592C924CA89E3001A005A /* Resources */,
 			);
@@ -524,6 +520,7 @@
 				CABF677B254DAF9E00E97751 /* TrackDrive.storyboard in Resources */,
 				CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */,
 				CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */,
+				CAC026B02563863400A29BBE /* postgres.sh in Resources */,
 				CAB592DB24CA89E4001A005A /* Assets.xcassets in Resources */,
 				CAB592D624CA89E3001A005A /* Main.storyboard in Resources */,
 			);
@@ -628,7 +625,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Drive/BuildPhases/swiftlint.sh\n";
+			shellScript = "$SRCROOT/Drive/BuildPhasesScripts/swiftlint.sh\n";
 		};
 		CA82DD1325281F38001FDCF1 /* Edit Plist Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -646,7 +643,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Drive/BuildPhases/edit-plist.sh\n";
+			shellScript = "$SRCROOT/Drive/BuildPhasesScripts/edit-plist.sh\n";
+		};
+		CAC026AE256385C100A29BBE /* Postgres Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Postgres Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Drive/BuildPhasesScripts/postgres.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
