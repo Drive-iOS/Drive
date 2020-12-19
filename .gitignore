@@ -2,6 +2,10 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## Custom
+postgres-local-database-config.json
+postgres-saved-build-script.txt
+
 ## User settings
 xcuserdata/
 
