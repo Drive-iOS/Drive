@@ -21,7 +21,6 @@
 		CA7F1A8B255FA4F500127E8A /* DebugStepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1A8A255FA4F500127E8A /* DebugStepManager.swift */; };
 		CA7F1A94255FADBB00127E8A /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1A93255FADBB00127E8A /* FeatureFlag.swift */; };
 		CA7F1A9D255FAE8D00127E8A /* DebugMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1A9C255FAE8D00127E8A /* DebugMenuView.swift */; };
-		CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD3825283A06001FDCF1 /* edit-plist.sh */; };
 		CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = CA82DD4325283B38001FDCF1 /* swiftlint.sh */; };
 		CA916D0724D8EB6F00601E0C /* PutDriveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */; };
 		CA9585872528439600F8DD2D /* GetDrivesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9585862528439600F8DD2D /* GetDrivesResponse.swift */; };
@@ -100,7 +99,6 @@
 		CA7F1A8A255FA4F500127E8A /* DebugStepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugStepManager.swift; sourceTree = "<group>"; };
 		CA7F1A93255FADBB00127E8A /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 		CA7F1A9C255FAE8D00127E8A /* DebugMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugMenuView.swift; sourceTree = "<group>"; };
-		CA82DD3825283A06001FDCF1 /* edit-plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "edit-plist.sh"; sourceTree = "<group>"; };
 		CA82DD4325283B38001FDCF1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		CA916D0624D8EB6F00601E0C /* PutDriveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutDriveResponse.swift; sourceTree = "<group>"; };
 		CA9585862528439600F8DD2D /* GetDrivesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDrivesResponse.swift; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				CA82DD4325283B38001FDCF1 /* swiftlint.sh */,
-				CA82DD3825283A06001FDCF1 /* edit-plist.sh */,
 				CAC026AF2563863400A29BBE /* postgres.sh */,
 			);
 			path = BuildPhasesScripts;
@@ -413,7 +410,6 @@
 				19288B35A3DAED6ABBFEE820 /* [CP] Check Pods Manifest.lock */,
 				CAB592C724CA89E3001A005A /* Sources */,
 				CA5E937324CBAE5900C36AC3 /* SwiftLint Script */,
-				CA82DD1325281F38001FDCF1 /* Edit Plist Script */,
 				CAC026AE256385C100A29BBE /* Postgres Script */,
 				CAB592C824CA89E3001A005A /* Frameworks */,
 				CAB592C924CA89E3001A005A /* Resources */,
@@ -518,7 +514,6 @@
 				CABF6768254D1D5600E97751 /* miata-start-video.mov in Resources */,
 				CA1889A325298DE100BEB498 /* CvilleDebugCoordinates.json in Resources */,
 				CABF677B254DAF9E00E97751 /* TrackDrive.storyboard in Resources */,
-				CA82DD3925283A06001FDCF1 /* edit-plist.sh in Resources */,
 				CA82DD4425283B38001FDCF1 /* swiftlint.sh in Resources */,
 				CAC026B02563863400A29BBE /* postgres.sh in Resources */,
 				CAB592DB24CA89E4001A005A /* Assets.xcassets in Resources */,
@@ -626,24 +621,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Drive/BuildPhasesScripts/swiftlint.sh\n";
-		};
-		CA82DD1325281F38001FDCF1 /* Edit Plist Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Edit Plist Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Drive/BuildPhasesScripts/edit-plist.sh\n";
 		};
 		CAC026AE256385C100A29BBE /* Postgres Script */ = {
 			isa = PBXShellScriptBuildPhase;
